@@ -7,7 +7,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+var cors = require('cors');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var auth = require('./routes/auth');
@@ -18,7 +18,7 @@ var app = express();
 
 app.use(passport.initialize());
 app.use(bodyParser.json());
-
+app.use(cors());
 app.use('/api/auth', auth);
 app.use('/api/question', question);
 app.use('/api/response', response);

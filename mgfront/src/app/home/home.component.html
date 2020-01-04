@@ -1,1 +1,12 @@
-<p>home works!</p>
+<div class="wrapper">
+    <ng-container *ngFor="let item of questions;let i = index">
+        <div class="content" *ngIf="i == counter" [@flyInOut]="'in'">
+            <h1>{{item.title}}<br> we need you!</h1>
+            <h3>Afin d'améliorer votre Mg Experience nous avons besoin de vos feedbacks et recommandation.<br> le
+                questionnaire
+                ne durera qu'une minute, on vous remercie à l'avance pour le temps consacré.</h3>
+            <button (click)="showNext()">COMMENCER</button>
+        </div>
+
+    </ng-container>
+</div>
