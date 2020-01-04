@@ -1,1 +1,92 @@
-<p>backoffice works!</p>
+<div class="row">
+  <div class="col-md-2 pl-2 pr-2 mb-4">
+    <div class="w-100 h-100p">
+      <ngx-charts-number-card
+        [view]="[200, 200]"
+        [scheme]="salesBgColor"
+        [textColor]="'#fff'"
+        [innerPadding]="0"
+        [results]="sales"
+        [valueFormatting]="infoValueFormat"
+        [labelFormatting]="infoLabelFormat"
+        (select)="onSelect($event)"
+      >
+      </ngx-charts-number-card>
+    </div>
+  </div>
+  <div class="col-md-2 pl-2 pr-2 mb-4">
+    <div class="w-100 h-100p">
+      <ngx-charts-number-card
+        [view]="[200, 200]"
+        [scheme]="likesBgColor"
+        [textColor]="'#fff'"
+        [innerPadding]="0"
+        [results]="likes"
+        [valueFormatting]="infoValueFormat"
+        [labelFormatting]="infoLabelFormat"
+        (select)="onSelect($event)"
+      >
+      </ngx-charts-number-card>
+    </div>
+  </div>
+  <div class="col-md-2 pl-2 pr-2 mb-4">
+    <div class="w-100 h-100p">
+      <ngx-charts-number-card
+        [view]="[200, 200]"
+        [scheme]="downloadsBgColor"
+        [textColor]="'#fff'"
+        [innerPadding]="0"
+        [results]="downloads"
+        [valueFormatting]="infoValueFormat"
+        [labelFormatting]="infoLabelFormat"
+        (select)="onSelect($event)"
+      >
+      </ngx-charts-number-card>
+    </div>
+  </div>
+  <div class="col-md-2 pl-2 pr-2 mb-4">
+    <div class="w-100 h-100p">
+      <ngx-charts-number-card
+        [view]="[200, 200]"
+        [scheme]="profitBgColor"
+        [textColor]="'#fff'"
+        [innerPadding]="0"
+        [results]="profit"
+        [valueFormatting]="infoValueFormat"
+        [labelFormatting]="infoLabelFormat"
+        (select)="onSelect($event)"
+      >
+      </ngx-charts-number-card>
+    </div>
+  </div>
+  <div class="col-md-2 pl-2 pr-2 mb-4">
+    <div class="w-100 h-100p">
+      <ngx-charts-number-card
+        [view]="[200, 200]"
+        [scheme]="messagesBgColor"
+        [textColor]="'#fff'"
+        [innerPadding]="0"
+        [results]="messages"
+        [valueFormatting]="infoValueFormat"
+        [labelFormatting]="infoLabelFormat"
+        (select)="onSelect($event)"
+      >
+      </ngx-charts-number-card>
+    </div>
+  </div>
+  <div class="col-md-2 pl-2 pr-2 mb-4">
+    <div class="w-100 h-100p">
+      <ngx-charts-number-card
+        [view]="[200, 200]"
+        [scheme]="membersBgColor"
+        [textColor]="'#fff'"
+        [innerPadding]="0"
+        [results]="members"
+        [valueFormatting]="infoValueFormat"
+        [labelFormatting]="infoLabelFormat"
+        (select)="onSelect($event)"
+      >
+      </ngx-charts-number-card>
+    </div>
+  </div>
+</div>
