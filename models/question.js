@@ -1,16 +1,11 @@
 var mongoose = require('mongoose'), Schema = mongoose.Schema;
 
 var questionShema = new mongoose.Schema({
-  // category : { type: Schema.Types.ObjectId, ref: 'Category' },
   id: String,
-  name: String,
-  modelCar: String,
-  description: String,
-  type: String,
-  questionOne: String,
-  questionTwo: String,
-  created: { type: Date },
+  type: [{type: Number, enum:[1,2]}],
+  created: { type: Date, default: Date.now },
   updated: { type: Date, default: Date.now },
+  category: {type : String, enum: ['Boolean', 'Number']}
 });
 
 module.exports = mongoose.model('Question', questionShema);

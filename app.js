@@ -19,7 +19,6 @@ app.use(passport.initialize());
 
 app.use('/api/auth', auth);
 app.use('/api/question', question);
-app.use('/api/static', static);
 
 app.use(logger('dev'));
 app.use(express.json());
