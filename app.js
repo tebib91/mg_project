@@ -11,7 +11,7 @@ var passport = require('passport');
 
 var auth = require('./routes/auth');
 var question = require('./routes/question');
-// var static = require('./routes/static');
+var response = require('./routes/response');
 
 var app = express();
 
@@ -19,6 +19,7 @@ app.use(passport.initialize());
 
 app.use('/api/auth', auth);
 app.use('/api/question', question);
+app.use('/api/response', response);
 
 app.use(logger('dev'));
 app.use(express.json());
