@@ -3,9 +3,9 @@ Schema = mongoose.Schema;
 
 const responseSchema = mongoose.Schema({
     id: String,
-    note: Number,
-    type: Boolean,
-    reponseObject: new Schema({
+    number: Number,
+    boolean: Boolean,
+    object: new Schema({
         fullName: [String],
         modelCar: [String],
         suggestion: [String]
