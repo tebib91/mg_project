@@ -1,10 +1,15 @@
 const mongoose = require('mongoose');
+Schema = mongoose.Schema;
 
 const responseSchema = mongoose.Schema({
     id: String,
-    title: { type: String, required: true },
-    description: String,
     note: Number,
+    type: Boolean,
+    reponseObject: new Schema({
+        fullName: [String],
+        modelCar: [String],
+        suggestion: [String]
+      }),
     question : { type: Schema.Types.ObjectId, ref: 'Question' },
 
 });
