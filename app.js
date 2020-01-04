@@ -10,8 +10,8 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 
 var auth = require('./routes/auth');
-var question = require('./routes/post');
-var static = require('./routes/static');
+var question = require('./routes/question');
+// var static = require('./routes/static');
 
 var app = express();
 
@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-mongoose.connect('mongodb://localhost/blog-cms', {
+mongoose.connect('mongodb+srv://root:24212439@mgdb-ie7cc.mongodb.net/test?retryWrites=true&w=majority', {
     promiseLibrary: require('bluebird'),
     useNewUrlParser: true,
     useUnifiedTopology: true,
