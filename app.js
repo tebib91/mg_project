@@ -1,3 +1,5 @@
+const bodyParser = require('body-parser');
+
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -8,7 +10,6 @@ var usersRouter = require('./routes/users');
 
 var mongoose = require('mongoose');
 var passport = require('passport');
-
 var auth = require('./routes/auth');
 var question = require('./routes/question');
 var response = require('./routes/response');
@@ -16,6 +17,7 @@ var response = require('./routes/response');
 var app = express();
 
 app.use(passport.initialize());
+app.use(bodyParser.json());
 
 app.use('/api/auth', auth);
 app.use('/api/question', question);
