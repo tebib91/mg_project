@@ -1,21 +1,110 @@
-.wrapper {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/img/intro-carousel/1.jpg");
-  /* Set a specific height */
-  height: 100%;
-  /* Position and center the image to scale nicely on all screens */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
+
+.car {
+  width: 100%;
+  height: auto;
+  object-fit: container;
 }
-.content {
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 75%;
-    transform: translate(-50%, -50%);
-    color: white;
-    >h1 {
-        color: red;
-    }
+img {
+  max-width: 100%;
+}
+
+.container {
+  height:100%;
+  overflow: hidden;
+  position: absolute;
+  width: -webkit-fill-available;
+}
+
+.img-container {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  height: auto !important;
+  background-size: cover;
+  background-position: center;
+  will-change: opacity;
+  transition: opacity .3s;
+  cursor: pointer;
+}
+
+
+
+.slide-button:hover, .slide-button-select {
+  width: 64px !important;
+  background-color: rgba(255,255,255,1) !important;
+  pointer-events: none;
+  transition: background-color .4s, width 4s cubic-bezier(0.190, 1.000, 0.220, 1.000) !important;
+}
+
+
+.slide-button {
+  width: 30px;
+  height: 4px;
+  //rgba(255,255,255,.5)
+  background-color: black;
+  cursor: pointer;
+  position: absolute;
+
+}
+
+.slider {
+  position: absolute;
+  top: 50%;
+  right: 80px;
+  opacity: 1;
+  min-width: 30px;
+
+}
+
+.slide-button-parent-container {
+  position: relative;
+  margin: 22px 0;
+  min-height: 4px;
+}
+
+.select-box {
+  min-height: 10px;
+}
+
+.text-container {
+  height: 100vh;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.text-container2 {
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  display: flex;
+
+}
+
+.page-text {
+  min-height: 373px;
+  width: 50%;
+  height: 100%;
+  opacity: 0;
+  color: white;
+
+}
+.btn {
+  font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 32px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin: 10px;
+    color: #fff;
+    background: #18d26e;
+    border: 0px;
+}
+.selected {
+  opacity: 1;
+  transition: 1s;
+  width: 100%;
 }

@@ -1,12 +1,47 @@
-<div class="wrapper">
-    <ng-container *ngFor="let item of questions;let i = index">
-        <div class="content" *ngIf="i == counter" [@flyInOut]="'in'">
-            <h1>{{item.title}}<br> we need you!</h1>
-            <h3>Afin d'améliorer votre Mg Experience nous avons besoin de vos feedbacks et recommandation.<br> le
-                questionnaire
-                ne durera qu'une minute, on vous remercie à l'avance pour le temps consacré.</h3>
-            <button (click)="showNext()">COMMENCER</button>
-        </div>
+<div class="container">
+  <div class="img-container" *ngFor="let i of sliderArray; let select = index;"
+    [ngClass]="{'selected': select == selectedIndex}">
+    <img src="{{i.img}}" alt="{{i.alt}}">
 
-    </ng-container>
+  </div>
+
+  <!--</div>-->
+  <div [ngStyle]="{'transform': 'translateY('+ 10 + '%' +')', 'transition': '.8s'}">
+    <div class="text-container" *ngIf=" '1' == selectedIndex">
+      <div class="page-text" [ngClass]="{'selected': '1' == selectedIndex}">
+        <h3>MG Lover, <br>we need you!</h3>
+        <p>A fin d'améliorer votre MG Expérience nous avons besoin de votre feedbacks et recommandations.<br>Le
+          questionnaire ne durera qu'une minute, on vous remercie à l'avance pour le temps consacré.</p>
+        <button class="btn" (click)="selected(2)">COMMENCER</button>
+      </div>
+    </div>
+    <div class="text-container" *ngIf="'2' == selectedIndex">
+      <div class="page-text" [ngClass]="{'selected': '2' == selectedIndex}">
+        <div class="text-q">
+          <h1 class="w-50 text-center" (click)="selected(3)">Vous êtes? <br> un nouveau client</h1>
+          <h1 class="w-50 text-center">Vous êtes? <br> un client SAV</h1>
+        </div>
+      </div>
+    </div>
+    <div class="text-container" *ngIf="'3' == selectedIndex">
+      <div class="page-text" [ngClass]="{'selected': '2' == selectedIndex}">
+        <div class="text-q">
+          <h1 class="text-center">Comment vous évaluez le prise en charge et le suivi par notre équipe</h1>
+          <button class="btn" (click)="selected(4)">Next</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="slider">
+  <div class="slide-button-parent-container" *ngFor="let i of sliderArray; let x =index" (click)="selected(x)"
+    (keypress)="keySelected(x)">
+    <div class="select-box">
+      <div class="slide-button" [ngClass]="{'slide-button-select': x == selectedIndex}">
+      </div>
+    </div>
+  </div>
 </div>
