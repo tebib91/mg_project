@@ -18,7 +18,7 @@ img {
 .img-container {
   position: absolute;
   left: 0;
-  opacity: 0;
+  opacity: 1;
   height: auto !important;
   background-size: cover;
   background-position: center;
@@ -86,7 +86,7 @@ img {
   min-height: 373px;
   width: 50%;
   height: 100%;
-  opacity: 0;
+  opacity: 1;
   color: white;
 
 }
@@ -104,7 +104,33 @@ img {
     border: 0px;
 }
 .selected {
-  opacity: 1;
-  transition: 1s;
-  width: 100%;
+  // opacity: 1;
+  // transition: 1s;
+  // width: 100%;
+}
+.begin {
+  position: absolute;
+    top: 25%;
+    left: 60%;
+    > h1 {
+      color: #f60023;
+      font-family: "SourceSansPro-Bold";
+    }
+}
+.question {
+  position: absolute;
+    display: flex;
+    width: 100%;
+    text-align: center;
+    top: 30%;
+    justify-content: space-around;
+     > h1:first-child {
+       color: white;
+      }
+      > h1 {
+        color: #f60023;
+       font-size: 60px;
+       font-weight: bold;
+       font-family: "SourceSansPro-Bold";
+    }
 }
