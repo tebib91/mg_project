@@ -1,1 +1,132 @@
-<p>backoffice works!</p>
+<div class="row">
+  <div class="col-md-2 pl-2 pr-2 mb-4">
+    <div class="w-100 h-100p">
+      <ngx-charts-number-card
+        [view]="[200, 200]"
+        [scheme]="salesBgColor"
+        [textColor]="'#fff'"
+        [innerPadding]="0"
+        [results]="sales"
+        [valueFormatting]="infoValueFormat"
+        [labelFormatting]="infoLabelFormat"
+        (select)="onSelect($event)"
+      >
+      </ngx-charts-number-card>
+    </div>
+  </div>
+  <div class="col-md-2 pl-2 pr-2 mb-4">
+    <div class="w-100 h-100p">
+      <ngx-charts-number-card
+        [view]="[200, 200]"
+        [scheme]="likesBgColor"
+        [textColor]="'#fff'"
+        [innerPadding]="0"
+        [results]="likes"
+        [valueFormatting]="infoValueFormat"
+        [labelFormatting]="infoLabelFormat"
+        (select)="onSelect($event)"
+      >
+      </ngx-charts-number-card>
+    </div>
+  </div>
+  <div class="col-md-2 pl-2 pr-2 mb-4">
+    <div class="w-100 h-100p">
+      <ngx-charts-number-card
+        [view]="[200, 200]"
+        [scheme]="downloadsBgColor"
+        [textColor]="'#fff'"
+        [innerPadding]="0"
+        [results]="downloads"
+        [valueFormatting]="infoValueFormat"
+        [labelFormatting]="infoLabelFormat"
+        (select)="onSelect($event)"
+      >
+      </ngx-charts-number-card>
+    </div>
+  </div>
+  <div class="col-md-2 pl-2 pr-2 mb-4">
+    <div class="w-100 h-100p">
+      <ngx-charts-number-card
+        [view]="[200, 200]"
+        [scheme]="profitBgColor"
+        [textColor]="'#fff'"
+        [innerPadding]="0"
+        [results]="profit"
+        [valueFormatting]="infoValueFormat"
+        [labelFormatting]="infoLabelFormat"
+        (select)="onSelect($event)"
+      >
+      </ngx-charts-number-card>
+    </div>
+  </div>
+  <div class="col-md-2 pl-2 pr-2 mb-4">
+    <div class="w-100 h-100p">
+      <ngx-charts-number-card
+        [view]="[200, 200]"
+        [scheme]="messagesBgColor"
+        [textColor]="'#fff'"
+        [innerPadding]="0"
+        [results]="messages"
+        [valueFormatting]="infoValueFormat"
+        [labelFormatting]="infoLabelFormat"
+        (select)="onSelect($event)"
+      >
+      </ngx-charts-number-card>
+    </div>
+  </div>
+  <div class="col-md-2 pl-2 pr-2 mb-4">
+    <div class="w-100 h-100p">
+      <ngx-charts-number-card
+        [view]="[200, 200]"
+        [scheme]="membersBgColor"
+        [textColor]="'#fff'"
+        [innerPadding]="0"
+        [results]="members"
+        [valueFormatting]="infoValueFormat"
+        [labelFormatting]="infoLabelFormat"
+        (select)="onSelect($event)"
+      >
+      </ngx-charts-number-card>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <mat-form-field>
+      <input
+        matInput
+        (keyup)="applyFilter($event.target.value)"
+        placeholder="Filter"
+      />
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- Position Column -->
+      <ng-container matColumnDef="index">
+        <th mat-header-cell *matHeaderCellDef>No.</th>
+        <td mat-cell *matCellDef="let reponse">{{ reponse.index }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="question_1">
+        <th mat-header-cell *matHeaderCellDef>SAV / NAUVEAU</th>
+        <td mat-cell *matCellDef="let reponse">{{ reponse.question_1 ? 'Nouveau Client' : 'SAV' }}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="full_name">
+        <th mat-header-cell *matHeaderCellDef>Nom complet</th>
+        <td mat-cell *matCellDef="let reponse">{{ reponse.full_name }}</td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="car_model">
+        <th mat-header-cell *matHeaderCellDef>Modéle de la véhicule</th>
+        <td mat-cell *matCellDef="let reponse">{{ reponse.car_model }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr class="table-row" mat-row *matRowDef="let row; columns: displayedColumns" (click)="onSelectRow(row._id)"></tr>
+    </table>
+  </div>
+</div>

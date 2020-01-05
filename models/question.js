@@ -1,7 +1,6 @@
 var mongoose = require('mongoose'), Schema = mongoose.Schema;
 
 var questionShema = new mongoose.Schema({
-  id: String,
   title: String,
   order: Number,
   type: {type: Number, enum:[0,1,2]},
