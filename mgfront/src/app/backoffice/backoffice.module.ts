@@ -7,17 +7,21 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ModalComponent } from './modal/modal.component';
 
 
 @NgModule({
-  declarations: [BackofficeComponent],
+  declarations: [BackofficeComponent, ModalComponent],
   imports: [
     CommonModule,
     BackofficeRoutingModule,
     NgxChartsModule,
     MatTableModule,
     MatFormFieldModule,
-    MatInputModule
-  ]
+    MatInputModule,
+    MatDialogModule
+  ],
+  entryComponents: [ModalComponent]
 })
 export class BackofficeModule { }

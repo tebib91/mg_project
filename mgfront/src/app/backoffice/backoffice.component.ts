@@ -1,25 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-const ELEMENT_DATA: any = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
+import { ApiserviceService } from '../core/apiservice.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from './modal/modal.component';
 @Component({
   selector: 'app-backoffice',
   templateUrl: './backoffice.component.html',
   styleUrls: ['./backoffice.component.scss']
 })
 export class BackofficeComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  displayedColumns: string[] = ['index', 'question_1', 'full_name', 'car_model'];
+  dataSource: MatTableDataSource<any>;
+  repsonses: any;
   public sales = [{ name: 'sales', value: 0.81, extra: { format: 'percent' } }];
   public salesBgColor = { domain: ['#2F3E9E'] };
 
@@ -41,8 +33,19 @@ export class BackofficeComponent implements OnInit {
   public membersBgColor = { domain: ['#F47B00'] };
 
 
-  constructor() {}
-  ngOnInit() {}
+  constructor(private apiService: ApiserviceService, public dialog: MatDialog) {}
+  ngOnInit() {
+    this.apiService.getAll('response').subscribe(
+      (responses) => {
+        let index = 1;
+        responses.map(response => {
+          response.index = index;
+          index++;
+        });
+        this.repsonses = responses;
+        this.dataSource = new MatTableDataSource(responses);
+      });
+  }
   infoValueFormat(c): string {
     switch (c.data.extra ? c.data.extra.format : '') {
       case 'currency':
@@ -58,7 +61,14 @@ export class BackofficeComponent implements OnInit {
     console.log(filterValue);
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
+  onSelectRow(id) {
+    console.log(id);
+    const dialogRef = this.dialog.open(ModalComponent, {
+      // height: '400px',
+      // width: '600px',
+      data: id,
+    });
+  }
   onSelect(event) {
     console.log(event);
   }
