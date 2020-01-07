@@ -4,42 +4,68 @@
     <img src="{{i.img}}" alt="{{i.alt}}">
   </div>
 
-  <div [ngStyle]="{'transform': 'translateX('+ transform + '%' +')', 'transition': '.8s'}">
-      <div class="text-container" *ngIf=" '1' == selectedIndex">
-        <div class="page-text"  [ngClass]="{'selected': '1' == selectedIndex}">
-          <h3>MG Lover, <br>we need you!</h3>
-          <p>A fin d'améliorer votre MG Expérience nous avons besoin de votre feedbacks et recommandations.<br>Le questionnaire ne durera qu'une minute, on vous remercie à l'avance  pour le temps consacré.</p>
-          <button  class="btn" (click)="selected(2)">COMMENCER</button>
-        </div>
-      </div>
-      <div class="text-container" *ngIf="'2' == selectedIndex">
-        <div  class="page-text" [ngClass]="{'selected': '2' == selectedIndex}">
-          <div class="text-q">
-            <h1 class="w-50 text-center" (click)="selected(3)">Vous êtes? <br> un nouveau client</h1>
-            <h1 class="w-50 text-center">Vous êtes? <br> un client SAV</h1>
-          </div>
-        </div>
-      </div>
-      <div class="text-container" *ngIf="'3' == selectedIndex">
-        <div  class="page-text" [ngClass]="{'selected': '2' == selectedIndex}">
-          <div class="text-q">
-            <h1 class="text-center">Comment vous évaluez le prise en charge et le suivi par notre équipe</h1>
-            <button  class="btn" (click)="selected(4)">Next</button>
+  <div class="text-container">
 
-          </div>
-        </div>
-      </div>
-    </div> 
+    <div class="page-text questionOne" *ngIf="selectedIndex == 0" [ngClass]="{'selected':selectedIndex == 0}">
+      <h1>MG Lover, <br>we need you!</h1>
+      <p>A fin d'améliorer votre MG Expérience nous avons besoin de votre feedbacks et recommandations.<br>Le
+        questionnaire ne durera qu'une minute, on vous remercie à l'avance pour le temps consacré.</p>
+      <button class="btn" (click)="selected(1)">COMMENCER</button>
+    </div>
 
-   <div class="begin">
-    <h1>MG Lover, <br>we need you!</h1>
-    <h3>A fin d'améliorer votre MG Expérience nous avons besoin de votre feedbacks et recommandations.<br>Le
-      questionnaire ne durera qu'une minute, on vous remercie à l'avance pour le temps consacré.</h3>
-    <button class="btn" (click)="selected(2)">COMMENCER</button>
-  </div> 
-  <div class="question">
-    <h1 class="" (click)="selected(3)">Vous êtes? <br> un nouveau client</h1>
-    <h1 class="">Vous êtes? <br> un client SAV</h1>
+    <div class="page-text" *ngIf="selectedIndex == 1" [ngClass]="{'selected':selectedIndex == 1}">
+      <div class="questionTwo">
+        <h1 class="" (click)="selected(2)">Vous êtes? <br> un nouveau client</h1>
+        <h1 class="">Vous êtes? <br> un client SAV</h1>
+      </div>
+    </div>
+
+    <div class="page-text" *ngIf="selectedIndex == 2" [ngClass]="{'selected': selectedIndex == 2}">
+      <div class="questionThree">
+        <h1 class="text-center">Comment vous évaluez le prise en charge et le suivi par notre équipe commercial</h1>
+        <div class="icons">
+          <img src="assets/icons/1-5.png" alt="" width="42">
+          <img src="assets/icons/2-5.png" alt="" width="42">
+          <img src="assets/icons/3-5.png" alt="" width="42">
+          <img src="assets/icons/4-5.png" alt="" width="42">
+          <img src="assets/icons/5-5.png" alt="" width="42">
+
+        </div>
+        <button class="btn" (click)="selected(3)">Next</button>
+      </div>
+    </div>
+
+    <div class="page-text" *ngIf="selectedIndex == 3" [ngClass]="{'selected': selectedIndex == 3}">
+      <div class="questionFour">
+        <h1 class="text-center">Comment vous évaluez le prise en charge et le suivi par notre équipe commercial</h1>
+        <p>Explication et réponse aux questions</p>
+        <div class="icons">
+          <img src="assets/icons/1-5.png" alt="" width="42">
+          <img src="assets/icons/2-5.png" alt="" width="42">
+          <img src="assets/icons/3-5.png" alt="" width="42">
+          <img src="assets/icons/4-5.png" alt="" width="42">
+          <img src="assets/icons/5-5.png" alt="" width="42">
+        </div>
+        <p>Démonstration</p>
+        <div class="icons">
+          <img src="assets/icons/1-5.png" alt="" width="42">
+          <img src="assets/icons/2-5.png" alt="" width="42">
+          <img src="assets/icons/3-5.png" alt="" width="42">
+          <img src="assets/icons/4-5.png" alt="" width="42">
+          <img src="assets/icons/5-5.png" alt="" width="42">
+
+        </div>
+        <button class="btn" (click)="selected(4)">Next</button>
+      </div>
+    </div>
+
+    <div class="page-text" *ngIf="selectedIndex == 4" [ngClass]="{'selected': selectedIndex == 4}">
+      <div class="questionFive">
+        <h1 class="text-center">Recommanderiez-vous la  marque MG à votre entourage?</h1>
+        <mat-slider thumbLabel tickInterval="auto" min="0" max="10" [(ngModel)]="value"></mat-slider>
+        <button class="btn" (click)="selected(3)">Next</button>
+      </div>
+    </div>
   </div>
 </div>
 
