@@ -44,6 +44,10 @@ export class ApiserviceService {
     );
   }
 
+  getStat(endpoint) {
+    return this.http.get(`${apiUrl}/stat/${endpoint}`);
+  }
+
   deletePost(id: any): Observable<any> {
     const url = `${apiUrl}/${id}`;
     return this.http.delete<any>(url).pipe(

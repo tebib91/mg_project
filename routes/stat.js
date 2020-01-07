@@ -44,17 +44,27 @@ const Response = require('../models/response');
 //       res.status(401).json({ error: err });
 //     });
 // });
-
-router.get('/:question_number', (req, res) => {
+router.get('/', (req, res) => {
+  Response.countDocuments().then(nb => {
+    return res.status(201).json({
+      number: nb
+    });
+  }).catch(err => {
+    return res.status(401).json({
+      error: err
+    });
+  });
+});
+router.get('/:question_number/:score', (req, res) => {
   const query = {};
-  query[`question_${req.params.question_number}`] = { $ne: null };
+  query[`question_${req.params.question_number}`] = req.params.question_number == 1 ? req.params.score : +req.params.score;
   Response.find(query).then(response => {
     const number = response.length;
     return res.status(201).json({
       number
     });
   }).catch(err => {
-    res.status(401).json({
+    return res.status(401).json({
       error: err
     });
   });

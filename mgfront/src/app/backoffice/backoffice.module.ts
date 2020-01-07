@@ -9,10 +9,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ModalComponent } from './modal/modal.component';
+import { StatCardComponent } from './stat-card/stat-card.component';
 
 
 @NgModule({
-  declarations: [BackofficeComponent, ModalComponent],
+  declarations: [BackofficeComponent, ModalComponent, StatCardComponent],
   imports: [
     CommonModule,
     BackofficeRoutingModule,
