@@ -13,6 +13,7 @@ var passport = require('passport');
 var auth = require('./routes/auth');
 var question = require('./routes/question');
 var response = require('./routes/response');
+var stat = require('./routes/stat');
 
 var app = express();
 
@@ -22,7 +23,7 @@ app.use(cors());
 app.use('/api/auth', auth);
 app.use('/api/question', question);
 app.use('/api/response', response);
-
+app.use('/api/stat', stat);
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
