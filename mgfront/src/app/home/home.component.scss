@@ -1,21 +1,241 @@
-.wrapper {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/img/intro-carousel/1.jpg");
-  /* Set a specific height */
-  height: 100%;
-  /* Position and center the image to scale nicely on all screens */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
+.car {
+  width: 100%;
+  height: auto;
+  object-fit: container;
 }
-.content {
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 75%;
-    transform: translate(-50%, -50%);
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  width: -webkit-fill-available;
+}
+
+.img-container {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  height: auto !important;
+  background-size: cover;
+  background-position: center;
+  will-change: opacity;
+  transition: opacity .3s;
+  cursor: pointer;
+}
+
+
+
+.slide-button:hover,
+.slide-button-select {
+  width: 64px !important;
+  background-color: rgba(255, 255, 255, 1) !important;
+  pointer-events: none;
+  transition: background-color .4s, width 4s cubic-bezier(0.190, 1.000, 0.220, 1.000) !important;
+}
+
+
+.slide-button {
+  width: 30px;
+  height: 4px;
+  //rgba(255,255,255,.5)
+  background-color: black;
+  cursor: pointer;
+  position: absolute;
+
+}
+
+.slider {
+  position: absolute;
+  top: 50%;
+  right: 80px;
+  opacity: 1;
+  min-width: 30px;
+
+}
+
+.slide-button-parent-container {
+  position: relative;
+  margin: 22px 0;
+  min-height: 4px;
+}
+
+.select-box {
+  min-height: 10px;
+}
+
+
+.text-container {
+  position: absolute;
+  top: 35%;
+  width: 100%;
+}
+
+.page-text {
+  min-height: 373px;
+  height: 100%;
+  opacity: 0;
+}
+
+.questionOne {
+  position: absolute;
+  left: 60%;
+  max-width: 35em !important;
+  margin: 0 2em;
+  text-align: center;
+
+  >h1 {
+    color: #f60023;
+    font-size: 4em;
+    font-family: "SourceSansPro-Bold";
+    line-height: 1;
+  }
+
+  >p {
+    font-weight: bold;
+  }
+}
+
+.questionTwo {
+  display: flex;
+  justify-content: space-around;
+
+  >h1 {
+    font-size: 4em;
     color: white;
-    >h1 {
-        color: red;
+    cursor: pointer;
+  }
+
+  >h1:last-child {
+    color: #f60023;
+  }
+}
+
+.questionThree {
+  position: absolute;
+  left: 60%;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 1.1px;
+  max-width: 35em !important;
+  > h1 {
+    line-height: 1;
+  }
+  .icons {
+    justify-content: space-around;
+    > img {
+      margin-right: 0.7em;
+      transition: transform .5s ease;
     }
+    > img:hover {
+      transform: scale(1.2);
+     }
+  }
+}
+
+.questionFour {
+  position: absolute;
+  left: 60%;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 1.1px;
+  max-width: 35em !important;
+  > h1 {
+    line-height: 1;
+  }
+  > p {
+    font-weight: bold;
+  }
+  .icons {
+    justify-content: space-around;
+    > img {
+      margin-right: 0.7em;
+      transition: transform .5s ease;
+    }
+    > img:hover {
+      transform: scale(1.2);
+     }
+  }
+}
+.questionFive {
+  position: absolute;
+  left: 60%;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 1.1px;
+  max-width: 35em !important;
+  > h1 {
+    line-height: 1;
+  }
+  > p {
+    font-weight: bold;
+  }
+  .icons {
+    justify-content: space-around;
+    > img {
+      margin-right: 0.7em;
+      transition: transform .5s ease;
+    }
+    > img:hover {
+      transform: scale(1.2);
+     }
+  }
+}
+mat-slider {
+  width: 300px;
+}
+.btn {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 42px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin: 10px;
+  color: #fff;
+  background: #f60023;
+  border: 0px;
+  cursor: pointer;
+}
+
+.selected {
+  opacity: 1;
+  transition: 1s;
+  width: 100%;
+}
+
+
+.begin {
+  position: absolute;
+  top: 25%;
+  left: 60%;
+
+  >h1 {
+    color: #f60023;
+    font-family: "SourceSansPro-Bold";
+  }
+}
+
+.question {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  text-align: center;
+  top: 30%;
+  justify-content: space-around;
+
+  >h1:first-child {
+    color: white;
+  }
+
+  >h1 {
+    color: #f60023;
+    font-size: 60px;
+    font-weight: bold;
+    font-family: "SourceSansPro-Bold";
+  }
 }

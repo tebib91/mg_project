@@ -1,0 +1,44 @@
+#header {
+    background-color: transparent;
+    /*Opacity start*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+
+    /*Opacity end*/
+    color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 90%;
+    border-bottom: 1px solid white;
+    padding: 0;
+    margin: auto 5%;
+    z-index: 9999;
+}
+#header #header-content {
+    margin: 10px; 
+}
+img.logo {
+    width: 49px;
+    height: 49px;
+    object-fit: contain;
+}
+
+img.logo-name {
+    height: 16px;
+    margin-left: 1em;
+    object-fit: contain;
+}
+#footer {
+    background-color: transparent;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 90%;
+    border-top: 1px solid white;
+    padding: 10px;
+    margin: auto 5%;
+    z-index: 9999;
+    text-align: right;
+}

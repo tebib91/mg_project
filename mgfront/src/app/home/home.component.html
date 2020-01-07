@@ -1,12 +1,82 @@
-<div class="wrapper">
-    <ng-container *ngFor="let item of questions;let i = index">
-        <div class="content" *ngIf="i == counter" [@flyInOut]="'in'">
-            <h1>{{item.title}}<br> we need you!</h1>
-            <h3>Afin d'améliorer votre Mg Experience nous avons besoin de vos feedbacks et recommandation.<br> le
-                questionnaire
-                ne durera qu'une minute, on vous remercie à l'avance pour le temps consacré.</h3>
-            <button (click)="showNext()">COMMENCER</button>
-        </div>
+<div class="container">
+  <div class="img-container" *ngFor="let i of sliderArray; let select = index;"
+    [ngClass]="{'selected': select == selectedIndex}">
+    <img src="{{i.img}}" alt="{{i.alt}}">
+  </div>
 
-    </ng-container>
+  <div class="text-container">
+
+    <div class="page-text questionOne" *ngIf="selectedIndex == 0" [ngClass]="{'selected':selectedIndex == 0}">
+      <h1>MG Lover, <br>we need you!</h1>
+      <p>A fin d'améliorer votre MG Expérience nous avons besoin de votre feedbacks et recommandations.<br>Le
+        questionnaire ne durera qu'une minute, on vous remercie à l'avance pour le temps consacré.</p>
+      <button class="btn" (click)="selected(1)">COMMENCER</button>
+    </div>
+
+    <div class="page-text" *ngIf="selectedIndex == 1" [ngClass]="{'selected':selectedIndex == 1}">
+      <div class="questionTwo">
+        <h1 class="" (click)="selected(2)">Vous êtes? <br> un nouveau client</h1>
+        <h1 class="">Vous êtes? <br> un client SAV</h1>
+      </div>
+    </div>
+
+    <div class="page-text" *ngIf="selectedIndex == 2" [ngClass]="{'selected': selectedIndex == 2}">
+      <div class="questionThree">
+        <h1 class="text-center">Comment vous évaluez le prise en charge et le suivi par notre équipe commercial</h1>
+        <div class="icons">
+          <img src="assets/icons/1-5.png" alt="" width="42">
+          <img src="assets/icons/2-5.png" alt="" width="42">
+          <img src="assets/icons/3-5.png" alt="" width="42">
+          <img src="assets/icons/4-5.png" alt="" width="42">
+          <img src="assets/icons/5-5.png" alt="" width="42">
+
+        </div>
+        <button class="btn" (click)="selected(3)">Next</button>
+      </div>
+    </div>
+
+    <div class="page-text" *ngIf="selectedIndex == 3" [ngClass]="{'selected': selectedIndex == 3}">
+      <div class="questionFour">
+        <h1 class="text-center">Comment vous évaluez le prise en charge et le suivi par notre équipe commercial</h1>
+        <p>Explication et réponse aux questions</p>
+        <div class="icons">
+          <img src="assets/icons/1-5.png" alt="" width="42">
+          <img src="assets/icons/2-5.png" alt="" width="42">
+          <img src="assets/icons/3-5.png" alt="" width="42">
+          <img src="assets/icons/4-5.png" alt="" width="42">
+          <img src="assets/icons/5-5.png" alt="" width="42">
+        </div>
+        <p>Démonstration</p>
+        <div class="icons">
+          <img src="assets/icons/1-5.png" alt="" width="42">
+          <img src="assets/icons/2-5.png" alt="" width="42">
+          <img src="assets/icons/3-5.png" alt="" width="42">
+          <img src="assets/icons/4-5.png" alt="" width="42">
+          <img src="assets/icons/5-5.png" alt="" width="42">
+
+        </div>
+        <button class="btn" (click)="selected(4)">Next</button>
+      </div>
+    </div>
+
+    <div class="page-text" *ngIf="selectedIndex == 4" [ngClass]="{'selected': selectedIndex == 4}">
+      <div class="questionFive">
+        <h1 class="text-center">Recommanderiez-vous la  marque MG à votre entourage?</h1>
+        <mat-slider thumbLabel tickInterval="auto" min="0" max="10" [(ngModel)]="value"></mat-slider>
+        <button class="btn" (click)="selected(3)">Next</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="slider">
+  <div class="slide-button-parent-container" *ngFor="let i of sliderArray; let x =index" (click)="selected(x)"
+    (keypress)="keySelected(x)">
+    <div class="select-box">
+      <div class="slide-button" [ngClass]="{'slide-button-select': x == selectedIndex}">
+      </div>
+    </div>
+  </div>
 </div>
