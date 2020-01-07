@@ -1,0 +1,19 @@
+<div class="w-100 h-100p">
+  <ngx-charts-bar-vertical
+  [view]="[200, 200]"
+  [scheme]="colorScheme"
+  [results]="result"
+  [xAxis]="true"
+  [yAxis]="true"
+  [legend]="true"
+  [showXAxisLabel]="true"
+  [showYAxisLabel]="true"
+  [xAxisLabel]="'Nombre'"
+  [yAxisLabel]="'Score'">
+</ngx-charts-bar-vertical>
+  <p *ngIf="!loaded">Loading Stats ...</p>
+</div>
+
+<!-- (select)="onSelect($event)" -->
+<!-- [valueFormatting]="infoValueFormat"
+    [labelFormatting]="infoLabelFormat" -->
