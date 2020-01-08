@@ -1,4 +1,17 @@
 <div class="container">
+  <div>
+    <mat-form-field>
+      <mat-label>Type de réponse</mat-label>
+      <mat-select [(value)]="type" (selectionChange)="changeSelect()">
+        <mat-option [value]="false">
+          SAV
+        </mat-option>
+        <mat-option [value]="true">
+          Nouveau client
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
   <div class="row">
     <div class="col-md-2 pl-2 pr-2 mb-4">
       <div class="w-100 h-100p">
@@ -111,7 +124,9 @@
         <!-- Name Column -->
         <ng-container matColumnDef="question_1">
           <th mat-header-cell *matHeaderCellDef>SAV / NAUVEAU</th>
-          <td mat-cell *matCellDef="let reponse">{{ reponse.question_1 ? 'Nouveau Client' : 'SAV' }}</td>
+          <td mat-cell *matCellDef="let reponse">
+            {{ reponse.question_1 ? "Nouveau Client" : "SAV" }}
+          </td>
         </ng-container>
 
         <!-- Weight Column -->
@@ -127,7 +142,12 @@
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr class="table-row" mat-row *matRowDef="let row; columns: displayedColumns" (click)="onSelectRow(row._id)"></tr>
+        <tr
+          class="table-row"
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          (click)="onSelectRow(row._id)"
+        ></tr>
       </table>
     </div>
   </div>

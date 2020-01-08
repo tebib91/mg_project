@@ -40,7 +40,7 @@ router.post('/', (req, res, next) => {
 });
 // return for the table
 router.get('/', (req, res) => {
-  Response.find().select({'question_1': 1, 'full_name': 1, 'car_model': 1}).then((responses) => {
+  Response.find({question_1: req.query.type}).select({'question_1': 1, 'full_name': 1, 'car_model': 1}).then((responses) => {
     res.status(201).json(responses);
   }).catch(err => {
     res.status(401).json({

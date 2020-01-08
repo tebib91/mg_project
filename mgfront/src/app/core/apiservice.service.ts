@@ -21,6 +21,10 @@ export class ApiserviceService {
       );
   }
 
+  filterResponse(query) {
+    return this.http.get(`${apiUrl}/response?type=${query}`);
+  }
+
   getId(baseUrl: string, id: any): Observable<any> {
     const url = `${apiUrl}/${baseUrl}/${id}`;
     return this.http.get<any>(url).pipe(

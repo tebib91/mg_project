@@ -10,6 +10,8 @@ import { MatInputModule } from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ModalComponent } from './modal/modal.component';
 import { StatCardComponent } from './stat-card/stat-card.component';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { StatCardComponent } from './stat-card/stat-card.component';
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule
   ],
   entryComponents: [ModalComponent]
 })

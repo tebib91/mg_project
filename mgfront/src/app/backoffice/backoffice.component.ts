@@ -51,13 +51,30 @@ export class BackofficeComponent implements OnInit {
     question_11: {},
     question_12: {},
     question_13: {},
-  }
+  };
+  type = false;
   constructor(
     private apiService: ApiserviceService,
     public dialog: MatDialog
   ) {}
   ngOnInit() {
-    this.apiService.getAll('response').subscribe(responses => {
+    console.log('type1', this.type);
+    this.apiCall();
+    // this.apiService.getAll('response').subscribe(responses => {
+    //   let index = 1;
+    //   responses.map(response => {
+    //     response.index = index;
+    //     index++;
+    //   });
+    //   this.repsonses = responses;
+    //   this.dataSource = new MatTableDataSource(responses);
+    // });
+    // this.apiService.getStat('').subscribe((responsesNb: any) => {
+    //   this.responsesNb = responsesNb.number;
+    // });
+  }
+  apiCall() {
+    this.apiService.filterResponse(this.type).subscribe((responses: any) => {
       let index = 1;
       responses.map(response => {
         response.index = index;
@@ -65,10 +82,12 @@ export class BackofficeComponent implements OnInit {
       });
       this.repsonses = responses;
       this.dataSource = new MatTableDataSource(responses);
-    });
-    this.apiService.getStat('').subscribe((responsesNb: any) => {
-      this.responsesNb = responsesNb.number;
-    });
+    })
+  }
+  changeSelect() {
+    // do shit
+    console.log('value', this.type);
+    this.apiCall();
   }
   infoValueFormat(c): string {
     switch (c.data.extra ? c.data.extra.format : "") {
