@@ -44,30 +44,41 @@ const Response = require('../models/response');
 //       res.status(401).json({ error: err });
 //     });
 // });
-router.get('/', (req, res) => {
-  Response.countDocuments().then(nb => {
-    return res.status(201).json({
-      number: nb
-    });
-  }).catch(err => {
-    return res.status(401).json({
-      error: err
-    });
-  });
-});
-router.get('/:question_number/:score', (req, res) => {
-  const query = {};
-  query[`question_${req.params.question_number}`] = req.params.question_number == 1 ? req.params.score : +req.params.score;
-  Response.find(query).then(response => {
-    const number = response.length;
+// router.get('/', (req, res) => {
+//   Response.countDocuments().then(nb => {
+//     return res.status(201).json({
+//       number: nb
+//     });
+//   }).catch(err => {
+//     return res.status(401).json({
+//       error: err
+//     });
+//   });
+// });
+router.post('/', (req, res) => {
+  Response.countDocuments(req.body, (err, number) => {
     return res.status(201).json({
       number
     });
   }).catch(err => {
     return res.status(401).json({
       error: err
-    });
-  });
-});
+    })
+  })
+})
+// router.get('/:question_number/:score', (req, res) => {
+//   const query = {};
+//   query[`question_${req.params.question_number}`] = req.params.question_number == 1 ? req.params.score : +req.params.score;
+//   Response.find(query).then(response => {
+//     const number = response.length;
+//     return res.status(201).json({
+//       number
+//     });
+//   }).catch(err => {
+//     return res.status(401).json({
+//       error: err
+//     });
+//   });
+// });
 
 module.exports = router;
