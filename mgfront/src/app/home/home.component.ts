@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   sliderArray: object[];
   transform: number;
   selectedIndex = 0;
+  value = 1;
   constructor(private api: ApiserviceService) {
     this.sliderArray = [];
     this.selectedIndex = 0;
