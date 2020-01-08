@@ -7,10 +7,26 @@ import { Options } from 'ng5-slider';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  encapsulation: ViewEncapsulation.Native
+  animations: [
+    trigger('fadeIn', [
+      state('in', style({ 'opacity': '1' })),
+      state('out', style({ 'opacity': '0' })),
+      transition('* => *', [
+        animate(2000)
+      ])
+    ])
+  ]
 
 })
+
 export class HomeComponent implements OnInit {
+  private bgImgs: Array<any>;
+  private current: number = 0;
+  currentImage;
+  state = 'in';
+  counter = 0;
+  enableAnimation = false;
+
   response = {};
   questions: any;
   sliderArray: object[];
@@ -45,15 +61,9 @@ export class HomeComponent implements OnInit {
     this.sliderArray = [
       { "img": "assets/backgound-1.png", "alt": "", "text": "365 Days Of weddings a year" },
       { "img": "assets/backgound-2.png", "alt": "", "text": "365 Days Of weddings a year" },
-      { "img": "assets/backgound-1.png", "alt": "", "text": "365 Days Of weddings a year" },
-      { "img": "assets/backgound-1.png", "alt": "", "text": "365 Days Of weddings a year" },
-      { "img": "assets/backgound-1.png", "alt": "", "text": "365 Days Of weddings a year" },
-      { "img": "assets/backgound-1.png", "alt": "", "text": "365 Days Of weddings a year" },
-      { "img": "assets/backgound-1.png", "alt": "", "text": "365 Days Of weddings a year" },
-      { "img": "assets/backgound-1.png", "alt": "", "text": "365 Days Of weddings a year" },
-      { "img": "assets/backgound-1.png", "alt": "", "text": "365 Days Of weddings a year" },
 
     ];
+    this.currentImage= this.sliderArray[0].img;
 
   }
 
@@ -68,6 +78,12 @@ export class HomeComponent implements OnInit {
   selected(x) {
     this.downSelected(x);
     this.selectedIndex = x;
+    if( x === 1) {
+      this.currentImage= this.sliderArray[1].img
+    } else {
+      this.currentImage= this.sliderArray[0].img
+
+    }
   }
 
   keySelected(x) {
