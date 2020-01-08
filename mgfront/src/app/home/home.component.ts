@@ -16,6 +16,9 @@ export class HomeComponent implements OnInit {
   transform: number;
   selectedIndex = 0;
   value = 1;
+  full_name = '';
+  car_model = '';
+  suggestion = '';
   constructor(private api: ApiserviceService) {
     this.sliderArray = [];
     this.selectedIndex = 0;
@@ -72,6 +75,9 @@ export class HomeComponent implements OnInit {
   }
 
   submitResponse() {
+    this.response['full_name'] = this.full_name;
+    this.response['car_model'] = this.car_model;
+    this.response['suggestion'] = this.suggestion;
     this.api.addResponse(this.response).subscribe((data) => {
       console.log('response data', data);
     });

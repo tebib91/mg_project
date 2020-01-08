@@ -60,7 +60,7 @@
       <div class="questionFive">
         <h1 class="text-center">Recommanderiez-vous la  marque MG à votre entourage?</h1>
         <mat-slider thumbLabel tickInterval="auto" min="0" max="10" [(ngModel)]="value"></mat-slider>
-        <button class="btn" (click)="selected(3)">Next</button>
+        <button class="btn" (click)="selected(9)">Next</button>
       </div>
     </div>
     <div class="page-text" *ngIf="selectedIndex == 5" [ngClass]="{'selected': selectedIndex == 5}">
@@ -134,7 +134,31 @@
       <div class="questionFive">
         <h1 class="text-center">Recommanderiez-vous la  service après-vente MG à votre entourage?</h1>
         <mat-slider thumbLabel tickInterval="auto" min="0" max="10" [(ngModel)]="value"></mat-slider>
-        <button class="btn" (click)="selected(10)">Next</button>
+        <button class="btn" (click)="selected(9)">Next</button>
+      </div>
+    </div>
+    <div class="page-text" *ngIf="selectedIndex == 9" [ngClass]="{'selected': selectedIndex == 9}">
+      <div class="questionFive">
+        <section class="get-in-touch">
+          <form class="contact-form row">
+             <div class="form-field col x-50">
+                <input id="name" class="input-text js-input" type="text" [(ngModel)]="full_name" required>
+                <label class="label" for="name">Npm Complet</label>
+             </div>
+             <div class="form-field col x-50">
+                <input id="email" class="input-text js-input" type="text" [(ngModel)]="car_model" required>
+                <label class="label" for="email">Modèle de la Véhicule</label>
+             </div>
+             <div class="form-field col x-100">
+                <input id="message" class="input-text js-input" type="text" [(ngModel)]="suggestion">
+                <label class="label" for="message">Suggestion</label>
+             </div>
+             <div class="form-field col x-100 align-center">
+                <input class="submit-btn" type="submit" value="Submit" (click)="submitResponse()">
+             </div>
+          </form>
+       </section>
+       <!-- <p class="note">Based on <a class="link" href="http://redcollar.digital/contacts/" target="blank">Red Collar Contact Form</a>.</p> -->
       </div>
     </div>
   </div>
