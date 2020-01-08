@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ApiserviceService } from '../core/apiservice.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { Options } from 'ng5-slider';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,21 @@ export class HomeComponent implements OnInit {
   sliderArray: object[];
   transform: number;
   selectedIndex = 0;
-  value = 1;
+  value: number = 5;
+  options: Options = {
+    showTicksValues: true,
+    stepsArray: [
+      {value: 1, legend: 'Very poor'},
+      {value: 2},
+      {value: 3, legend: 'Fair'},
+      {value: 4},
+      {value: 5, legend: 'Average'},
+      {value: 6},
+      {value: 7, legend: 'Good'},
+      {value: 8},
+      {value: 9, legend: 'Excellent'}
+    ]
+  };
   constructor(private api: ApiserviceService) {
     this.sliderArray = [];
     this.selectedIndex = 0;
@@ -29,7 +44,12 @@ export class HomeComponent implements OnInit {
       { "img": "assets/backgound-2.png", "alt": "", "text": "365 Days Of weddings a year" },
       { "img": "assets/backgound-1.png", "alt": "", "text": "365 Days Of weddings a year" },
       { "img": "assets/backgound-1.png", "alt": "", "text": "365 Days Of weddings a year" },
-      { "img": "assets/backgound-1.png", "alt": "", "text": "365 Days Of weddings a year" }
+      { "img": "assets/backgound-1.png", "alt": "", "text": "365 Days Of weddings a year" },
+      { "img": "assets/backgound-1.png", "alt": "", "text": "365 Days Of weddings a year" },
+      { "img": "assets/backgound-1.png", "alt": "", "text": "365 Days Of weddings a year" },
+      { "img": "assets/backgound-1.png", "alt": "", "text": "365 Days Of weddings a year" },
+      { "img": "assets/backgound-1.png", "alt": "", "text": "365 Days Of weddings a year" },
+
     ];
 
   }

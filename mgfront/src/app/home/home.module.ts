@@ -6,6 +6,7 @@ import { HomeComponent } from './home.component';
 
 import {MatSliderModule, MatSlideToggleModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Ng5SliderModule } from 'ng5-slider';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -16,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     MatSlideToggleModule,
+    Ng5SliderModule
   ]
 })
 export class HomeModule { }

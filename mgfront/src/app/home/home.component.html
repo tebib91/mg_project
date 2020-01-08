@@ -1,7 +1,7 @@
 <div class="container">
   <div class="img-container" *ngFor="let i of sliderArray; let select = index;"
     [ngClass]="{'selected': select == selectedIndex}">
-    <img src="bla" alt="bla">
+    <img [src]="i.img" alt="bla">
   </div>
 
   <div class="text-container">
@@ -59,8 +59,10 @@
     <div class="page-text" *ngIf="selectedIndex == 4" [ngClass]="{'selected': selectedIndex == 4}">
       <div class="questionFive">
         <h1 class="text-center">Recommanderiez-vous la  marque MG à votre entourage?</h1>
-        <mat-slider thumbLabel tickInterval="auto" min="0" max="10" [(ngModel)]="value"></mat-slider>
-        <button class="btn" (click)="selected(3)">Next</button>
+        <div class="custom-slider">
+          <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+        </div>
+                <button class="btn mt-4" (click)="selected(10)">Next</button>
       </div>
     </div>
     <div class="page-text" *ngIf="selectedIndex == 5" [ngClass]="{'selected': selectedIndex == 5}">
@@ -133,8 +135,8 @@
     <div class="page-text" *ngIf="selectedIndex == 8" [ngClass]="{'selected': selectedIndex == 8}">
       <div class="questionFive">
         <h1 class="text-center">Recommanderiez-vous la  service après-vente MG à votre entourage?</h1>
-        <mat-slider thumbLabel tickInterval="auto" min="0" max="10" [(ngModel)]="value"></mat-slider>
-        <button class="btn" (click)="selected(10)">Next</button>
+        <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+        <button class="btn mt-4" (click)="selected(10)">Next</button>
       </div>
     </div>
   </div>
