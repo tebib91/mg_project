@@ -10,6 +10,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 
 })
 export class HomeComponent implements OnInit {
+  response = {};
   questions: any;
   sliderArray: object[];
   transform: number;
@@ -49,7 +50,7 @@ export class HomeComponent implements OnInit {
     this.downSelected(x);
     this.selectedIndex = x;
     console.log('selectedIndex', this.selectedIndex, 'x: ', x);
-    
+
   }
 
   downSelected(i) {
@@ -59,5 +60,19 @@ export class HomeComponent implements OnInit {
     //    this.selectedIndex = 0;
     //  }
   }
+  addResponse(question, payload) {
+    this.response[`question_${question}`] = payload;
+    if (question == 1 && payload === true) {
+      this.selected(2);
+    } else if (question == 1 && payload === false) {
+      this.selected(5);
+    }
+    console.log(this.selectedIndex);
+  }
 
+  submitResponse() {
+    this.api.addResponse(this.response).subscribe((data) => {
+      console.log('response data', data);
+    });
+  }
 }

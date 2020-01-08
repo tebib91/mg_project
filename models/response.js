@@ -14,7 +14,7 @@ const responseSchema = mongoose.Schema({
     question_10: Number,
     question_11: Number,
     question_12: Number,
-    question_13: Number,
+    // question_13: Number,
     full_name: {type: String, required: true},
     car_model: {type: String, required: true},
     suggetion: String    
