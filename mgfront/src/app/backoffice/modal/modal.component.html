@@ -1,6 +1,6 @@
 <div class="container" *ngIf="response">
   <h4>Réponse: </h4>
   <div *ngFor="let key of objectKeys(response)">
-    <span>{{questions[key]}}: </span><span>{{response[key]}}</span>
+    <span class="text-secondary">{{questions[key]}}:&nbsp;</span><span class="text-info">{{response[key]}}</span>
   </div>
 </div>
