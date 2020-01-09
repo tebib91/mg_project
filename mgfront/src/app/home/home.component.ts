@@ -111,6 +111,9 @@ export class HomeComponent implements OnInit {
   }
 
   submitResponse() {
+    console.log(this.full_name)
+    console.log(this.car_model)
+    console.log(this.full_name)
     this.response['full_name'] = this.full_name;
     this.response['car_model'] = this.car_model;
     this.response['suggestion'] = this.suggestion;
