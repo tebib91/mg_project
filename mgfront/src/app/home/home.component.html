@@ -130,47 +130,33 @@
         <div class="page-text" *ngIf="selectedIndex == 8" [ngClass]="{'selected': selectedIndex == 8}">
 
             <div class="questionFive">
-                <img src="assets/barre (1).png">
+                <img src="assets/barre.png">
                 <p class="recommand-text text-center"> Recommanderiez-vous le service après-vente MG à votre entourage?</p>
                 <mat-slider thumbLabel tickInterval="auto" min="0" max="10" [(ngModel)]="value"></mat-slider>
                 <button class="btn" (click)="selected(9)">Suivant</button>
             </div>
         </div>
         <div class="page-text" *ngIf="selectedIndex == 9" [ngClass]="{'selected': selectedIndex == 9}">
-            <div class="questionFive">
-                <!-- <section class="get-in-touch">
-          <form class="contact-form row">
-             <div class="form-field col-12 col-md-4 x-50">
-                <input id="name" class="input-text js-input" type="text" [(ngModel)]="full_name" required>
-                <label class="label" for="name">Nom Complet</label>
-             </div>
-             <div class="form-field col-12 col-md-4 x-50">
-                <input id="email" class="input-text js-input" type="text" [(ngModel)]="car_model" required>
-                <label class="label" for="email">Modèle du Véhicule</label>
-             </div>
-             <div class="form-field col-12 col-md-4 x-100">
-                <input id="message" class="input-text js-input" type="text" [(ngModel)]="suggestion">
-                <label class="label" for="message">Suggestion</label>
-             </div>
-             <div class="form-field col-12 x-100 align-center">
-                <input class="submit-btn" type="submit" value="Submit" (click)="submitResponse()">
-             </div>
-          </form>
-       </section> -->
-                <form class="row">
-                    <div class="col-md-6">
-                        <input type="text" aria-label="name">
-                    </div>
-                    <div class="col-md-6">
-                        <input type="email" aria-label="email">
-                    </div>
-                    <div class="col-md-12">
-                        <input type="text" aria-label="message">
-                    </div>
-                    <div class="col-md-3">
-                        <button class="hoverable-btn submit-btn" (click)="submit()">Submit</button>
-                    </div>
-                </form>
+            <div class="formulaire">
+                    <p class="red-title">MG Lover,</p>
+                    <p class="red-title">c'est presque fini!</p>
+                    <p class="normal-text">On vous remercie du temps consacré, vous souhaitez rajouter une remarque ou une suggestion?</p>
+              
+                    <div class="row form-container col-12">
+                        <div class="col-6 ">
+                            <input type="text" class="curved-input">
+                        </div>
+
+                        <div class="col-6 ">
+                            <input type="text" class="curved-input">
+                        </div>
+                        
+                         <div class="col-12">
+                            <input type="text" class="curved-input textAr">
+                        </div>
+                     </div>
+               
+           
             </div>
         </div>
     </div>

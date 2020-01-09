@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
 
   response = {};
   questions: any;
-  sliderArray: object[];
+  sliderArray: any[];
   transform: number;
   selectedIndex = 0;
   value: number = 5;
