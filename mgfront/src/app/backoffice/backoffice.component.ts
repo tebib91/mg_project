@@ -29,12 +29,21 @@ export class BackofficeComponent implements OnInit {
   public profit = [{ name: "Question One", value: 0.81, extra: { format: "percent" } }];
   public profitBgColor = { domain: ["#0096A6"] };
 
-  public messages = [{ name: "Question One", value: 0.81, extra: { format: "percent" } }];
+  // public messages = [{ name: "Question One", value: 0.81, extra: { format: "percent" } }];
+  public messages;
   public messagesBgColor = { domain: ["#606060"] };
 
-  public members = [{ name: "Question One", value: 0.81, extra: { format: "percent" } }];
+  // public members = [{ name: "Question One", value: 0.81, extra: { format: "percent" } }];
+  public members;
   public membersBgColor = { domain: ["#F47B00"] };
-
+  newClients = {
+    percentage: 0,
+    number: 0
+  };
+  savClients = {
+    percentage: 0,
+    number: 0
+  };
   questions = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
   responsesNb: number;
   stats = {
@@ -60,6 +69,24 @@ export class BackofficeComponent implements OnInit {
   ngOnInit() {
     console.log('type1', this.type);
     this.apiCall();
+    this.apiService.getStat({}).subscribe((nb: any) => {
+      console.log('number', nb)
+      this.responsesNb = nb.number;
+      this.apiService.getStat({question_1: true}).subscribe((newNb: any) => {
+        console.log('new number', newNb)
+        this.newClients['number'] = newNb.number;
+        this.newClients['percentage'] = newNb.number  / this.responsesNb;
+        this.members = [{ name: "Nouveaux clients", value: this.newClients.percentage, extra: { format: "percent" } }];
+        console.log('new', this.newClients);
+      });
+      this.apiService.getStat({question_1: false}).subscribe((savNb: any) => {
+        console.log('sav number', savNb)
+        this.savClients['number'] = savNb.number;
+        this.savClients['percentage'] = savNb.number / this.responsesNb;
+        console.log('sav', this.savClients);
+        this.messages = [{ name: "SAV", value: this.savClients.percentage, extra: { format: "percent" } }];
+      });
+    })
     // this.apiService.getAll('response').subscribe(responses => {
     //   let index = 1;
     //   responses.map(response => {

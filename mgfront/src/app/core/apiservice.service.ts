@@ -5,6 +5,7 @@ import { catchError, tap } from 'rxjs/operators';
 
 
 const apiUrl = 'http://51.91.110.170:3001/api';
+// const apiUrl = 'http://localhost:3001/api';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,9 @@ export class ApiserviceService {
         catchError(this.handleError('getQuestions', []))
       );
   }
-
+  getStat(query) {
+    return this.http.post(`${apiUrl}/stat`, query);
+  }
   filterResponse(query) {
     return this.http.get(`${apiUrl}/response?type=${query}`);
   }
@@ -48,9 +51,9 @@ export class ApiserviceService {
     );
   }
 
-  getStat(endpoint) {
-    return this.http.get(`${apiUrl}/stat/${endpoint}`);
-  }
+  // getStat(endpoint) {
+  //   return this.http.get(`${apiUrl}/stat/${endpoint}`);
+  // }
 
   deletePost(id: any): Observable<any> {
     const url = `${apiUrl}/${id}`;

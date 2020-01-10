@@ -22,11 +22,11 @@
                     ?
                 </h1>
                 <div class="icons mt-4">
-                    <img src="assets/icons/1-5.png" alt="" width="42" (click)="addResponse(2, 1)">
-                    <img src="assets/icons/2-5.png" alt="" width="42" (click)="addResponse(2, 1)">
-                    <img src="assets/icons/3-5.png" alt="" width="42" (click)="addResponse(2, 1)">
-                    <img src="assets/icons/4-5.png" alt="" width="42" (click)="addResponse(2, 1)">
-                    <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(2, 1)">
+                    <img src="assets/icons/1-5.png" alt="" width="42" (click)="addResponse(2, 1)" [ngClass]="{'icon-selected': response.question_2 === 1}">
+                    <img src="assets/icons/2-5.png" alt="" width="42" (click)="addResponse(2, 1)" [ngClass]="{'icon-selected': response.question_2 === 2}">
+                    <img src="assets/icons/3-5.png" alt="" width="42" (click)="addResponse(2, 1)" [ngClass]="{'icon-selected': response.question_2 === 3}">
+                    <img src="assets/icons/4-5.png" alt="" width="42" (click)="addResponse(2, 1)" [ngClass]="{'icon-selected': response.question_2 === 4}">
+                    <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(2, 1)" [ngClass]="{'icon-selected': response.question_2 === 5}">
 
                 </div>
                 <button class="btn mt-4" (click)="selected(3)">Next</button>
@@ -39,19 +39,19 @@
                 </h1>
                 <p>Explication et réponse aux questions</p>
                 <div class="icons my-3">
-                    <img src="assets/icons/1-5.png" alt="" width="42" (click)="addResponse(3, 1)">
-                    <img src="assets/icons/2-5.png" alt="" width="42" (click)="addResponse(3, 2)">
-                    <img src="assets/icons/3-5.png" alt="" width="42" (click)="addResponse(3, 3)">
-                    <img src="assets/icons/4-5.png" alt="" width="42" (click)="addResponse(3, 4)">
-                    <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(3, 5)">
+                    <img src="assets/icons/1-5.png" alt="" width="42" (click)="addResponse(3, 1)" [ngClass]="{'icon-selected': response.question_3 === 1}">
+                    <img src="assets/icons/2-5.png" alt="" width="42" (click)="addResponse(3, 2)" [ngClass]="{'icon-selected': response.question_3 === 2}">
+                    <img src="assets/icons/3-5.png" alt="" width="42" (click)="addResponse(3, 3)" [ngClass]="{'icon-selected': response.question_3 === 3}">
+                    <img src="assets/icons/4-5.png" alt="" width="42" (click)="addResponse(3, 4)" [ngClass]="{'icon-selected': response.question_3 === 4}">
+                    <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(3, 5)" [ngClass]="{'icon-selected': response.question_3 === 5}">
                 </div>
                 <p>Démonstration</p>
                 <div class="icons my-3">
-                    <img src="assets/icons/1-5.png" alt="" width="42" (click)="addResponse(4, 1)">
-                    <img src="assets/icons/2-5.png" alt="" width="42" (click)="addResponse(4, 2)">
-                    <img src="assets/icons/3-5.png" alt="" width="42" (click)="addResponse(4, 3)">
-                    <img src="assets/icons/4-5.png" alt="" width="42" (click)="addResponse(4, 4)">
-                    <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(4, 5)">
+                    <img src="assets/icons/1-5.png" alt="" width="42" (click)="addResponse(4, 1)" [ngClass]="{'icon-selected': response.question_4 === 1}">
+                    <img src="assets/icons/2-5.png" alt="" width="42" (click)="addResponse(4, 2)" [ngClass]="{'icon-selected': response.question_4 === 2}">
+                    <img src="assets/icons/3-5.png" alt="" width="42" (click)="addResponse(4, 3)" [ngClass]="{'icon-selected': response.question_4 === 3}">
+                    <img src="assets/icons/4-5.png" alt="" width="42" (click)="addResponse(4, 4)" [ngClass]="{'icon-selected': response.question_4 === 4}">
+                    <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(4, 5)" [ngClass]="{'icon-selected': response.question_4 === 5}">
 
                 </div>
                 <button class="btn" (click)="selected(4)">Next</button>
@@ -71,11 +71,11 @@
                 <h1 class="text-justify">MG Lover quelle est votre degré de satisfaction par rapport à votre voiture MG?
                 </h1>
                 <div class="icons mt-4">
-                    <img src="assets/icons/1-5.png" alt="" width="42" (click)="addResponse(6, 1)">
-                    <img src="assets/icons/2-5.png" alt="" width="42" (click)="addResponse(6, 2)">
-                    <img src="assets/icons/3-5.png" alt="" width="42" (click)="addResponse(6, 3)">
-                    <img src="assets/icons/4-5.png" alt="" width="42" (click)="addResponse(6, 4)">
-                    <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(6, 5)">
+                    <img src="assets/icons/1-5.png" alt="" width="42" (click)="addResponse(6, 1)" [ngClass]="{'icon-selected': response.question_6 === 1}">
+                    <img src="assets/icons/2-5.png" alt="" width="42" (click)="addResponse(6, 2)" [ngClass]="{'icon-selected': response.question_6 === 2}">
+                    <img src="assets/icons/3-5.png" alt="" width="42" (click)="addResponse(6, 3)" [ngClass]="{'icon-selected': response.question_6 === 3}">
+                    <img src="assets/icons/4-5.png" alt="" width="42" (click)="addResponse(6, 4)" [ngClass]="{'icon-selected': response.question_6 === 4}">
+                    <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(6, 5)" [ngClass]="{'icon-selected': response.question_6 === 5}">
 
                 </div>
                 <button class="btn" (click)="selected(6)">Next</button>
@@ -86,27 +86,27 @@
                 <h1 class="text-justify">Comment vous évaluez la prise en charge et le suivi par notre équipe SAV</h1>
                 <p>Disponibilité et joignabilité de l'équipe</p>
                 <div class="icons my-3">
-                    <img src="assets/icons/1-5.png" alt="" width="42" (click)="addResponse(7, 1)">
-                    <img src="assets/icons/2-5.png" alt="" width="42" (click)="addResponse(7, 2)">
-                    <img src="assets/icons/3-5.png" alt="" width="42" (click)="addResponse(7, 3)">
-                    <img src="assets/icons/4-5.png" alt="" width="42" (click)="addResponse(7, 4)">
-                    <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(7, 5)">
+                    <img src="assets/icons/1-5.png" alt="" width="42" (click)="addResponse(7, 1)" [ngClass]="{'icon-selected': response.question_7 === 1}">
+                    <img src="assets/icons/2-5.png" alt="" width="42" (click)="addResponse(7, 2)" [ngClass]="{'icon-selected': response.question_7 === 2}">
+                    <img src="assets/icons/3-5.png" alt="" width="42" (click)="addResponse(7, 3)" [ngClass]="{'icon-selected': response.question_7 === 3}">
+                    <img src="assets/icons/4-5.png" alt="" width="42" (click)="addResponse(7, 4)" [ngClass]="{'icon-selected': response.question_7 === 4}">
+                    <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(7, 5)" [ngClass]="{'icon-selected': response.question_7 === 5}">
                 </div>
                 <p>Prise en charge de l'accueil</p>
                 <div class="icons my-3">
-                    <img src="assets/icons/1-5.png" alt="" width="42" (click)="addResponse(8, 1)">
-                    <img src="assets/icons/2-5.png" alt="" width="42" (click)="addResponse(8, 2)">
-                    <img src="assets/icons/3-5.png" alt="" width="42" (click)="addResponse(8, 3)">
-                    <img src="assets/icons/4-5.png" alt="" width="42" (click)="addResponse(8, 4)">
-                    <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(8, 5)">
+                    <img src="assets/icons/1-5.png" alt="" width="42" (click)="addResponse(8, 1)" [ngClass]="{'icon-selected': response.question_8 === 1}">
+                    <img src="assets/icons/2-5.png" alt="" width="42" (click)="addResponse(8, 2)" [ngClass]="{'icon-selected': response.question_8 === 2}">
+                    <img src="assets/icons/3-5.png" alt="" width="42" (click)="addResponse(8, 3)" [ngClass]="{'icon-selected': response.question_8 === 3}">
+                    <img src="assets/icons/4-5.png" alt="" width="42" (click)="addResponse(8, 4)" [ngClass]="{'icon-selected': response.question_8 === 4}">
+                    <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(8, 5)" [ngClass]="{'icon-selected': response.question_8 === 5}">
+                </div>
                 </div>
                 <p>Suivi de votre dossier</p>
-                <div class="icons my-3">
-                    <img src="assets/icons/1-5.png" alt="" width="42" (click)="addResponse(9, 1)">
-                    <img src="assets/icons/2-5.png" alt="" width="42" (click)="addResponse(9, 2)">
-                    <img src="assets/icons/3-5.png" alt="" width="42" (click)="addResponse(9, 3)">
-                    <img src="assets/icons/4-5.png" alt="" width="42" (click)="addResponse(9, 4)">
-                    <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(8, 5)">
+                <div class="icons my-3">   <img src="assets/icons/1-5.png" alt="" width="42" (click)="addResponse(9, 1)" [ngClass]="{'icon-selected': response.question_9 === 1}">
+                    <img src="assets/icons/2-5.png" alt="" width="42" (click)="addResponse(9, 2)" [ngClass]="{'icon-selected': response.question_9 === 2}">
+                    <img src="assets/icons/3-5.png" alt="" width="42" (click)="addResponse(9, 3)" [ngClass]="{'icon-selected': response.question_9 === 3}">
+                    <img src="assets/icons/4-5.png" alt="" width="42" (click)="addResponse(9, 4)" [ngClass]="{'icon-selected': response.question_9 === 4}">
+                    <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(8, 5)" [ngClass]="{'icon-selected': response.question_9 === 5}">
                 </div>
                 <button class="btn" (click)="selected(7)">Suivant</button>
             </div>
@@ -116,19 +116,19 @@
                 <h1 class="text-justify">Notre conseiller a répondu à toutes vos questions?</h1>
                 <p>Explication des travaux réalisés</p>
                 <div class="icons my-4">
-                    <img src="assets/icons/1-5.png" alt="" width="42" (click)="addResponse(10, 1)">
-                    <img src="assets/icons/2-5.png" alt="" width="42" (click)="addResponse(10, 2)">
-                    <img src="assets/icons/3-5.png" alt="" width="42" (click)="addResponse(10, 3)">
-                    <img src="assets/icons/4-5.png" alt="" width="42" (click)="addResponse(10, 4)">
-                    <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(10, 5)">
+                    <img src="assets/icons/1-5.png" alt="" width="42" (click)="addResponse(10, 1)" [ngClass]="{'icon-selected': response.question_10 === 1}">
+                    <img src="assets/icons/2-5.png" alt="" width="42" (click)="addResponse(10, 2)" [ngClass]="{'icon-selected': response.question_10 === 2}">
+                    <img src="assets/icons/3-5.png" alt="" width="42" (click)="addResponse(10, 3)" [ngClass]="{'icon-selected': response.question_10 === 3}">
+                    <img src="assets/icons/4-5.png" alt="" width="42" (click)="addResponse(10, 4)" [ngClass]="{'icon-selected': response.question_10 === 4}">
+                    <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(10, 5)" [ngClass]="{'icon-selected': response.question_10 === 5}">
                 </div>
                 <p>Réponses aux questions</p>
                 <div class="icons my-4">
-                    <img src="assets/icons/1-5.png" alt="" width="42" (click)="addResponse(11, 1)">
-                    <img src="assets/icons/2-5.png" alt="" width="42" (click)="addResponse(11, 2)">
-                    <img src="assets/icons/3-5.png" alt="" width="42" (click)="addResponse(11, 3)">
-                    <img src="assets/icons/4-5.png" alt="" width="42" (click)="addResponse(11, 4)">
-                    <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(11, 5)">
+                    <img src="assets/icons/1-5.png" alt="" width="42" (click)="addResponse(11, 1)" [ngClass]="{'icon-selected': response.question_11 === 1}">
+                    <img src="assets/icons/2-5.png" alt="" width="42" (click)="addResponse(11, 2)" [ngClass]="{'icon-selected': response.question_11 === 2}">
+                    <img src="assets/icons/3-5.png" alt="" width="42" (click)="addResponse(11, 3)" [ngClass]="{'icon-selected': response.question_11 === 3}">
+                    <img src="assets/icons/4-5.png" alt="" width="42" (click)="addResponse(11, 4)" [ngClass]="{'icon-selected': response.question_11 === 4}">
+                    <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(11, 5)" [ngClass]="{'icon-selected': response.question_11 === 5}">
 
                 </div>
                 <button class="btn" (click)="selected(8)">Suivant</button>
