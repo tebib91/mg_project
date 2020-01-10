@@ -25,7 +25,7 @@
                     <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(2, 5)" [ngClass]="{'icon-selected': response.question_2 === 5}">
 
                 </div>
-                <button class="btn" (click)="selected(3)">Next</button>
+                <button class="btn" (click)="selected(3)" [disabled]="!response['question_2']">Next</button>
             </div>
         </div>
         <div class="page-text" *ngIf="selectedIndex == 3" [ngClass]="{'selected': selectedIndex == 3}">
@@ -48,7 +48,7 @@
                     <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(4, 5)" [ngClass]="{'icon-selected': response.question_4 === 5}">
 
                 </div>
-                <button class="btn" (click)="selected(4)">Next</button>
+                <button class="btn" (click)="selected(4)" [disabled]="!response['question_3'] || !response['question_4']">Next</button>
             </div>
         </div>
         <div class="page-text" *ngIf="selectedIndex == 4" [ngClass]="{'selected': selectedIndex == 4}">
@@ -71,7 +71,7 @@
                     <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(6, 5)" [ngClass]="{'icon-selected': response.question_6 === 6}">
 
                 </div>
-                <button class="btn" (click)="selected(6)">Next</button>
+                <button class="btn" (click)="selected(6)" [disabled]="!response['question_6']">Next</button>
             </div>
         </div>
         <div class="page-text" *ngIf="selectedIndex == 6" [ngClass]="{'selected': selectedIndex == 6}">
@@ -101,7 +101,7 @@
                     <img src="assets/icons/4-5.png" alt="" width="42" (click)="addResponse(9, 4)" [ngClass]="{'icon-selected': response.question_9 === 4}">
                     <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(8, 5)" [ngClass]="{'icon-selected': response.question_9 === 5}">
                 </div>
-                <button class="btn" (click)="selected(7)">Suivant</button>
+                <button class="btn" (click)="selected(7)" [disabled]="!response['question_7'] || !response['question_8'] || !response['question_9']">Suivant</button>
             </div>
         </div>
         <div class="page-text" *ngIf="selectedIndex == 7" [ngClass]="{'selected': selectedIndex == 7}">
@@ -124,7 +124,7 @@
                     <img src="assets/icons/5-5.png" alt="" width="42" (click)="addResponse(11, 5)" [ngClass]="{'icon-selected': response.question_11 === 5}">
 
                 </div>
-                <button class="btn" (click)="selected(8)">Suivant</button>
+                <button class="btn" (click)="selected(8)" [disabled]="!response['question_10'] || !response['question_11']">Suivant</button>
             </div>
         </div>
         <div class="page-text" *ngIf="selectedIndex == 8" [ngClass]="{'selected': selectedIndex == 8}">
@@ -168,7 +168,7 @@
                         <input type="text" [(ngModel)]="suggestion" aria-label="message">
                     </div>
                     <div class="col-md-3">
-                        <button class="hoverable-btn submit-btn" (click)="submitResponse()">Submit</button>
+                        <button class="hoverable-btn submit-btn" [disabled]="!full_name || !car_model" (click)="submitResponse()">Submit</button>
                     </div>
                 </div>
             </div>
