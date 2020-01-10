@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ApiserviceService } from '../core/apiservice.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Options } from 'ng5-slider';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -26,7 +27,7 @@ export class HomeComponent implements OnInit {
   state = 'in';
   counter = 0;
   enableAnimation = false;
-
+  error = false;
   response = {};
   questions: any;
   sliderArray: any[];
@@ -36,21 +37,24 @@ export class HomeComponent implements OnInit {
   options: Options = {
     showTicksValues: true,
     stepsArray: [
-      {value: 1, legend: 'Very poor'},
-      {value: 2},
-      {value: 3, legend: 'Fair'},
-      {value: 4},
-      {value: 5, legend: 'Average'},
-      {value: 6},
-      {value: 7, legend: 'Good'},
-      {value: 8},
-      {value: 9, legend: 'Excellent'}
+      { value: 1, legend: 'Very poor' },
+      { value: 2 },
+      { value: 3, legend: 'Fair' },
+      { value: 4 },
+      { value: 5, legend: 'Average' },
+      { value: 6 },
+      { value: 7, legend: 'Good' },
+      { value: 8 },
+      { value: 9, legend: 'Excellent' }
     ]
   };
   full_name = '';
   car_model = '';
   suggestion = '';
-  constructor(private api: ApiserviceService) {
+
+  homeForm: FormGroup;
+
+  constructor(private api: ApiserviceService, private fb: FormBuilder) {
     this.sliderArray = [];
     this.selectedIndex = 0;
     this.transform = 100;
@@ -63,8 +67,14 @@ export class HomeComponent implements OnInit {
       { "img": "assets/backgound-2.png", "alt": "", "text": "365 Days Of weddings a year" },
 
     ];
-    this.currentImage= this.sliderArray[0].img;
+    this.currentImage = this.sliderArray[0].img;
 
+    // this.homeForm = this.fb.group({
+    //   full_name: ['', Validators.required],
+    //   car_model: ['', Validators.required],
+    //   suggestion: ['', Validators.required],
+
+    // })
   }
 
   getQuestion(): void {
@@ -78,10 +88,10 @@ export class HomeComponent implements OnInit {
   selected(x) {
     this.downSelected(x);
     this.selectedIndex = x;
-    if( x === 1) {
-      this.currentImage= this.sliderArray[1].img
+    if (x === 1) {
+      this.currentImage = this.sliderArray[1].img
     } else {
-      this.currentImage= this.sliderArray[0].img
+      this.currentImage = this.sliderArray[0].img
 
     }
   }
@@ -111,6 +121,7 @@ export class HomeComponent implements OnInit {
   }
 
   submitResponse() {
+    this.error = false;
     console.log(this.full_name)
     console.log(this.car_model)
     console.log(this.full_name)
@@ -120,5 +131,6 @@ export class HomeComponent implements OnInit {
     this.api.addResponse(this.response).subscribe((data) => {
       console.log('response data', data);
     });
+
   }
 }
