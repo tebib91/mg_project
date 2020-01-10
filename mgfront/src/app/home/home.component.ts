@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ApiserviceService } from '../core/apiservice.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Options } from 'ng5-slider';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -26,7 +27,7 @@ export class HomeComponent implements OnInit {
   state = 'in';
   counter = 0;
   enableAnimation = false;
-
+  error = false;
   response = {};
   questions: any;
   sliderArray: any[];
@@ -50,7 +51,10 @@ export class HomeComponent implements OnInit {
   full_name = '';
   car_model = '';
   suggestion = '';
-  constructor(private api: ApiserviceService) {
+
+  homeForm: FormGroup;
+
+  constructor(private api: ApiserviceService, private fb: FormBuilder) {
     this.sliderArray = [];
     this.selectedIndex = 0;
     this.transform = 100;
@@ -65,6 +69,12 @@ export class HomeComponent implements OnInit {
     ];
     this.currentImage= this.sliderArray[0].img;
 
+    this.homeForm = this.fb.group({
+      full_name: ['', Validators.required],
+      car_model: ['', Validators.required],
+      suggestion: ['', Validators.required],
+
+    })
   }
 
   getQuestion(): void {
@@ -111,14 +121,21 @@ export class HomeComponent implements OnInit {
   }
 
   submitResponse() {
+    this.error = false;
     console.log(this.full_name)
     console.log(this.car_model)
     console.log(this.full_name)
     this.response['full_name'] = this.full_name;
     this.response['car_model'] = this.car_model;
     this.response['suggestion'] = this.suggestion;
-    this.api.addResponse(this.response).subscribe((data) => {
-      console.log('response data', data);
-    });
+    if(this.homeForm.valid) {
+      
+      this.api.addResponse(this.response).subscribe((data) => {
+        console.log('response data', data);
+      });
+    } else {
+      this.error = true;
+    }
+
   }
 }

@@ -153,15 +153,13 @@
         font-size: 22px;
     }
     img {
-        width: 54%;
+        width: 60%;
         position: absolute;
         top: 59%;
         height: 66px;
-        left: 9%;
+        left: 8%;
     }
-    >p {
-        font-weight: bold;
-    }
+
     .icons {
         justify-content: space-around;
         >img {
@@ -169,13 +167,13 @@
             transition: transform .5s ease;
         }
         >img:hover {
-            transform: scale(1.2);
+            transform: scale(1.5);
         }
     }
 }
 
 mat-slider {
-    width: 300px;
+    width: 329px;
 }
 
 .btn {
@@ -225,6 +223,11 @@ mat-slider {
         font-weight: bold;
         font-family: "SourceSansPro-Bold";
     }
+}
+
+.error {
+    color: red;
+    font-size: 12px;
 }
 
 .custom-slider {
@@ -365,22 +368,6 @@ form {
         }
     }
 }
-.formulaire {
-    float: right;
-    text-align: center;
-    width: 46%;
-    margin-top: -15%;
-    margin-right: 5%;
-    .red-title {
-          color: red;
-    font-size: 40px;
-    font-weight: 600;
-    margin-bottom: 0;
-    }
-    .normal-text {
-      font-weight: 600;
-    }
-}
 
 .form-container {
   margin-top: 10px;
@@ -393,7 +380,24 @@ form {
   }
 }
 
+.red-title {
+    color: #df0606;
+    font-weight: bold;
+}
+
+.inputs {
+    margin-top: 10px;
+}
+::placeholder {
+    font-size: 12px;
+    color: #cfcfcf;
+}
+
 @media only screen and (max-width: 769px) {
+    .formulaire {
+        margin-top: -19%;
+    }
+    
     .recommand-text {
         font-size: 16px !important;
     }
@@ -450,7 +454,7 @@ form {
             left: 1%;
         }
         h1 {
-            font-size: 20px
+            font-size: 30px
         }
         .btn {
             margin-top: 40px;
@@ -459,4 +463,13 @@ form {
     .label {
         font-size: 14px !important;
     }
+}
+.form-q {
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    padding: 4px;
+    width: 100%;
+    color: #646270;
+    background: #f7f5fd;
+    font-weight: bold;
 }
