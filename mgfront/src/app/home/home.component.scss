@@ -9,6 +9,9 @@
     transition: opacity .3s;
     cursor: pointer;
 }
+.icon-selected {
+  transform: scale(1.2)
+}
 
 .wrapper {
     height: 100vh;
