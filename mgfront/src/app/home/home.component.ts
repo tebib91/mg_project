@@ -10,8 +10,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./home.component.scss'],
   animations: [
     trigger('fadeIn', [
-      state('in', style({ 'opacity': '1' })),
-      state('out', style({ 'opacity': '0' })),
+      state('in', style({ opacity: '1' })),
+      state('out', style({ opacity: '0' })),
       transition('* => *', [
         animate(2000)
       ])
@@ -21,19 +21,15 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 
 export class HomeComponent implements OnInit {
-  private bgImgs: Array<any>;
-  private current: number = 0;
+
   currentImage;
-  state = 'in';
-  counter = 0;
-  enableAnimation = false;
   error = false;
-  response = {};
+  response: any = {};
   questions: any;
   sliderArray: any[];
   transform: number;
   selectedIndex = 0;
-  value: number = 5;
+  value = 5;
   options: Options = {
     showTicksValues: true,
     stepsArray: [
@@ -56,15 +52,14 @@ export class HomeComponent implements OnInit {
 
   constructor(private api: ApiserviceService, private fb: FormBuilder) {
     this.sliderArray = [];
-    this.selectedIndex = 0;
     this.transform = 100;
   }
 
   ngOnInit() {
     // this.getQuestion();
     this.sliderArray = [
-      { "img": "assets/backgound-1.png", "alt": "", "text": "365 Days Of weddings a year" },
-      { "img": "assets/backgound-2.png", "alt": "", "text": "365 Days Of weddings a year" },
+      { img: 'assets/backgound-1.png', alt: '', text: '365 Days Of weddings a year' },
+      { img: 'assets/backgound-2.png', alt: '', text: '365 Days Of weddings a year' },
 
     ];
     this.currentImage = this.sliderArray[0].img;
@@ -89,9 +84,9 @@ export class HomeComponent implements OnInit {
     this.downSelected(x);
     this.selectedIndex = x;
     if (x === 1) {
-      this.currentImage = this.sliderArray[1].img
+      this.currentImage = this.sliderArray[1].img;
     } else {
-      this.currentImage = this.sliderArray[0].img
+      this.currentImage = this.sliderArray[0].img;
 
     }
   }
@@ -123,12 +118,12 @@ export class HomeComponent implements OnInit {
   submitResponse() {
     this.error = false;
     this.selectedIndex = 10;
-    console.log(this.full_name)
-    console.log(this.car_model)
-    console.log(this.full_name)
-    this.response['full_name'] = this.full_name;
-    this.response['car_model'] = this.car_model;
-    this.response['suggestion'] = this.suggestion;
+    console.log(this.full_name);
+    console.log(this.car_model);
+    console.log(this.full_name);
+    this.response.full_name = this.full_name;
+    this.response.car_model = this.car_model;
+    this.response.suggestion = this.suggestion;
     this.api.addResponse(this.response).subscribe((data) => {
       console.log('response data', data);
     });
