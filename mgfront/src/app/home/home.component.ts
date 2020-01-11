@@ -122,6 +122,7 @@ export class HomeComponent implements OnInit {
 
   submitResponse() {
     this.error = false;
+    this.selectedIndex = 10;
     console.log(this.full_name)
     console.log(this.car_model)
     console.log(this.full_name)
