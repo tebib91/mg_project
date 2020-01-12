@@ -132,6 +132,7 @@ export class HomeComponent implements OnInit {
     }
     console.log(this.response);
     this.api.addResponse(this.response).subscribe((data) => {
+      this.selectedIndex = 10;
       console.log('response data', data);
       this.selected(10);
     });
