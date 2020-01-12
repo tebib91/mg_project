@@ -41,7 +41,7 @@ router.post('/', (req, res, next) => {
 // return for the excel table
 router.get('/excel', (req, res) => {
   console.log('in getting excel data')
-  Response.find().select({'_id': 0, '__v': 0, 'created_at': 0,}).then((responses) => {
+  Response.find().select({'_id': 0, '__v': 0,}).then((responses) => {
     res.status(201).json(responses);
   }).catch(err => {
     res.status(401).json({
@@ -61,7 +61,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  Response.findOne({_id: req.params.id}).select({'_id': 0, '__v': 0}).then(response => {
+  Response.findOne({_id: req.params.id}).select({'_id': 0, '__v': 0, 'created_at': 0}).then(response => {
     // deleting undefined values
     Object.keys(response).map((key) => {
       if (!response[key]) {
