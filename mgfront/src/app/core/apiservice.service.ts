@@ -4,8 +4,8 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 
-const apiUrl = 'http://51.91.110.170:3001/api';
-// const apiUrl = 'http://localhost:3001/api';
+// const apiUrl = 'http://51.91.110.170:3001/api';
+const apiUrl = 'http://localhost:3001/api';
 
 @Injectable({
   providedIn: 'root'

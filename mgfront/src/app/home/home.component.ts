@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit {
   transform: number;
   selectedIndex = 0;
   value: number = 5;
+  question_5;
   options: Options = {
     showTicksValues: true,
     stepsArray: [
@@ -127,6 +128,7 @@ export class HomeComponent implements OnInit {
     console.log(this.full_name)
     this.response['full_name'] = this.full_name;
     this.response['car_model'] = this.car_model;
+    this.response['question_5'] = this.question_5;
     this.response['suggestion'] = this.suggestion;
     this.api.addResponse(this.response).subscribe((data) => {
       console.log('response data', data);

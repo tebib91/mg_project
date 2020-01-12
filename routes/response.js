@@ -38,6 +38,17 @@ router.post('/', (req, res, next) => {
   //   }
   // });
 });
+// return for the excel table
+router.get('/excel', (req, res) => {
+  console.log('in getting excel data')
+  Response.find().select({'_id': 0, '__v': 0,}).then((responses) => {
+    res.status(201).json(responses);
+  }).catch(err => {
+    res.status(401).json({
+      error: err
+    });
+  });
+});
 // return for the table
 router.get('/', (req, res) => {
   Response.find({question_1: req.query.type}).select({'question_1': 1, 'full_name': 1, 'car_model': 1}).then((responses) => {
@@ -48,6 +59,7 @@ router.get('/', (req, res) => {
     });
   });
 });
+
 router.get('/:id', (req, res) => {
   Response.findOne({_id: req.params.id}).select({'_id': 0, '__v': 0}).then(response => {
     // deleting undefined values
