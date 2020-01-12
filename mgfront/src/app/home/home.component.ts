@@ -2,6 +2,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ApiserviceService } from '../core/apiservice.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Options } from 'ng5-slider';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { questions } from '../core/question.data';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +11,8 @@ import { Options } from 'ng5-slider';
   styleUrls: ['./home.component.scss'],
   animations: [
     trigger('fadeIn', [
-      state('in', style({ 'opacity': '1' })),
-      state('out', style({ 'opacity': '0' })),
+      state('in', style({ opacity: '1' })),
+      state('out', style({ opacity: '0' })),
       transition('* => *', [
         animate(2000)
       ])
@@ -20,51 +22,56 @@ import { Options } from 'ng5-slider';
 })
 
 export class HomeComponent implements OnInit {
-  private bgImgs: Array<any>;
-  private current: number = 0;
   currentImage;
-  state = 'in';
-  counter = 0;
-  enableAnimation = false;
-
-  response = {};
+  error = false;
+  response: any = {};
   questions: any;
   sliderArray: any[];
   transform: number;
   selectedIndex = 0;
-  value: number = 5;
+  value = 5;
+  question_5;
+  question_12;
   options: Options = {
     showTicksValues: true,
     stepsArray: [
-      {value: 1, legend: 'Very poor'},
-      {value: 2},
-      {value: 3, legend: 'Fair'},
-      {value: 4},
-      {value: 5, legend: 'Average'},
-      {value: 6},
-      {value: 7, legend: 'Good'},
-      {value: 8},
-      {value: 9, legend: 'Excellent'}
+      { value: 1, legend: 'Very poor' },
+      { value: 2 },
+      { value: 3, legend: 'Fair' },
+      { value: 4 },
+      { value: 5, legend: 'Average' },
+      { value: 6 },
+      { value: 7, legend: 'Good' },
+      { value: 8 },
+      { value: 9, legend: 'Excellent' }
     ]
   };
   full_name = '';
   car_model = '';
   suggestion = '';
-  constructor(private api: ApiserviceService) {
+
+  homeForm: FormGroup;
+
+  constructor(private api: ApiserviceService, private fb: FormBuilder) {
     this.sliderArray = [];
-    this.selectedIndex = 0;
     this.transform = 100;
   }
 
   ngOnInit() {
     // this.getQuestion();
     this.sliderArray = [
-      { "img": "assets/backgound-1.png", "alt": "", "text": "365 Days Of weddings a year" },
-      { "img": "assets/backgound-2.png", "alt": "", "text": "365 Days Of weddings a year" },
+      { img: 'assets/backgound-1.png', alt: '', text: '365 Days Of weddings a year' },
+      { img: 'assets/backgound-2.png', alt: '', text: '365 Days Of weddings a year' },
 
     ];
-    this.currentImage= this.sliderArray[0].img;
+    this.currentImage = this.sliderArray[0].img;
 
+    // this.homeForm = this.fb.group({
+    //   full_name: ['', Validators.required],
+    //   car_model: ['', Validators.required],
+    //   suggestion: ['', Validators.required],
+
+    // })
   }
 
   getQuestion(): void {
@@ -78,10 +85,10 @@ export class HomeComponent implements OnInit {
   selected(x) {
     this.downSelected(x);
     this.selectedIndex = x;
-    if( x === 1) {
-      this.currentImage= this.sliderArray[1].img
+    if (x === 1) {
+      this.currentImage = this.sliderArray[1].img;
     } else {
-      this.currentImage= this.sliderArray[0].img
+      this.currentImage = this.sliderArray[0].img;
 
     }
   }
@@ -109,16 +116,26 @@ export class HomeComponent implements OnInit {
     }
     console.log(this.selectedIndex);
   }
-
+// submit method
   submitResponse() {
+    this.error = false;
     console.log(this.full_name)
     console.log(this.car_model)
     console.log(this.full_name)
     this.response['full_name'] = this.full_name;
     this.response['car_model'] = this.car_model;
     this.response['suggestion'] = this.suggestion;
+    if (this.question_5) {
+      this.response['question_5'] = this.question_5;
+    } else {
+      this.response['question_12'] = this.question_12;
+    }
+    console.log(this.response);
     this.api.addResponse(this.response).subscribe((data) => {
+      this.selectedIndex = 10;
       console.log('response data', data);
+      this.selected(10);
     });
+
   }
 }

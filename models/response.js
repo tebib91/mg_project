@@ -17,7 +17,8 @@ const responseSchema = mongoose.Schema({
     // question_13: Number,
     full_name: {type: String, required: true},
     car_model: {type: String, required: true},
-    suggetion: String    
+    suggetion: String,
+    created_at: {type: Date, default: new Date}
 });
 
 module.exports = mongoose.model('responses', responseSchema);
