@@ -26,7 +26,7 @@
         </ngx-charts-number-card>
       </div>
     </div>
-    <div class="col-md-2 pl-2 pr-2 mb-4">
+    <div class="col- pl-2 pr-2 mb-4">
       <div class="w-100 h-100p">
         <ngx-charts-number-card [view]="[200, 200]" [scheme]="likesBgColor" [textColor]="'#fff'" [innerPadding]="0"
           [results]="messages" [valueFormatting]="infoValueFormat" [labelFormatting]="infoLabelFormat"
@@ -137,29 +137,29 @@
 </div>
 
 
-// excel table
-<table id="excel-table">
+<!-- // excel table -->
+<table style="display: none;" id="excel-table">
   <tbody>
     <tr>
       <td>Date</td>
-      <td>Question 1</td>
-      <td>Question 2</td>
-      <td>Question 3</td>
-      <td>Question 4</td>
-      <td>Question 5</td>
-      <td>Question 6</td>
-      <td>Question 7</td>
-      <td>Question 8</td>
-      <td>Question 9</td>
-      <td>Question 10</td>
-      <td>Question 11</td>
-      <td>Question 12</td>
-      <td>Question 13</td>
-      <td>Npm complet</td>
-      <td>Modele de la véhicule</td>
+      <td>{{translatedQuestions['question_1']}}</td>
+      <td>{{translatedQuestions['question_2']}}</td>
+      <td>{{translatedQuestions['question_3']}}</td>
+      <td>{{translatedQuestions['question_4']}}</td>
+      <td>{{translatedQuestions['question_5']}}</td>
+      <td>{{translatedQuestions['question_6']}}</td>
+      <td>{{translatedQuestions['question_7']}}</td>
+      <td>{{translatedQuestions['question_8']}}</td>
+      <td>{{translatedQuestions['question_9']}}</td>
+      <td>{{translatedQuestions['question_10']}}</td>
+      <td>{{translatedQuestions['question_11']}}</td>
+      <td>{{translatedQuestions['question_12']}}</td>
+      <td>{{translatedQuestions['full_name']}}</td>
+      <td>{{translatedQuestions['car_model']}}</td>
+      <td>{{translatedQuestions['suggestion']}}</td>
     </tr>
     <tr *ngFor="let response of responses">
-      <td>{{response.createdAt ? response.createdAt : 'NO DATE'}}</td>
+      <td>{{response.created_at ? response.created_at : 'NO DATE'}}</td>
       <td>{{response.question_1 ? "Nouveau Client" : "SAV"}}</td>
       <td>{{response.question_2}}</td>
       <td>{{response.question_3}}</td>
@@ -172,7 +172,6 @@
       <td>{{response.question_10}}</td>
       <td>{{response.question_11}}</td>
       <td>{{response.question_12}}</td>
-      <td>{{response.question_13}}</td>
       <td>{{response.full_name}}</td>
       <td>{{response.car_model}}</td>
       <td>{{response.suggestion}}</td>

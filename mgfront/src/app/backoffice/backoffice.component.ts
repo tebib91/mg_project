@@ -4,7 +4,7 @@ import { ApiserviceService } from "../core/apiservice.service";
 import { MatDialog } from "@angular/material/dialog";
 import { ModalComponent } from "./modal/modal.component";
 import * as XLSX from 'xlsx';
-
+import { questions } from '../core/question.data';
 
 @Component({
   selector: "app-backoffice",
@@ -48,6 +48,7 @@ export class BackofficeComponent implements OnInit {
     percentage: 0,
     number: 0
   };
+  translatedQuestions = questions;
   questions = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
   responsesNb: number;
   responses: [];
