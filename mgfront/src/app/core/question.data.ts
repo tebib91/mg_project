@@ -1,4 +1,5 @@
 export const questions = {
+  created_at: 'Date',
   question_1: 'SAV / Nouveau',
   question_2: 'Comment vous évaluez la prise en charge et le suivi par notre équipe commerciale?',
   question_3: 'Explication et réponse aux questions.',

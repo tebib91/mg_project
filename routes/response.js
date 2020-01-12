@@ -41,7 +41,7 @@ router.post('/', (req, res, next) => {
 // return for the excel table
 router.get('/excel', (req, res) => {
   console.log('in getting excel data')
-  Response.find().select({'_id': 0, '__v': 0,}).then((responses) => {
+  Response.find().select({'_id': 0, '__v': 0, 'created_at': 0,}).then((responses) => {
     res.status(201).json(responses);
   }).catch(err => {
     res.status(401).json({
