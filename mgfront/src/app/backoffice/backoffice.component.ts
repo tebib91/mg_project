@@ -3,12 +3,16 @@ import { MatTableDataSource } from "@angular/material/table";
 import { ApiserviceService } from "../core/apiservice.service";
 import { MatDialog } from "@angular/material/dialog";
 import { ModalComponent } from "./modal/modal.component";
+import * as XLSX from 'xlsx';
+import { questions } from '../core/question.data';
+
 @Component({
   selector: "app-backoffice",
   templateUrl: "./backoffice.component.html",
   styleUrls: ["./backoffice.component.scss"]
 })
 export class BackofficeComponent implements OnInit {
+  fileName = `[${new Date().getDate()}-${new Date().getMonth() + 1}-${new Date().getFullYear()}] data.xlsx`;
   displayedColumns: string[] = [
     "index",
     "question_1",
@@ -44,8 +48,10 @@ export class BackofficeComponent implements OnInit {
     percentage: 0,
     number: 0
   };
+  translatedQuestions = questions;
   questions = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
   responsesNb: number;
+  responses: [];
   stats = {
     question_1: {},
     question_2: {},
@@ -65,21 +71,21 @@ export class BackofficeComponent implements OnInit {
   constructor(
     private apiService: ApiserviceService,
     public dialog: MatDialog
-  ) {}
+  ) { }
   ngOnInit() {
     console.log('type1', this.type);
     this.apiCall();
     this.apiService.getStat({}).subscribe((nb: any) => {
       console.log('number', nb)
       this.responsesNb = nb.number;
-      this.apiService.getStat({question_1: true}).subscribe((newNb: any) => {
+      this.apiService.getStat({ question_1: true }).subscribe((newNb: any) => {
         console.log('new number', newNb)
         this.newClients['number'] = newNb.number;
-        this.newClients['percentage'] = newNb.number  / this.responsesNb;
+        this.newClients['percentage'] = newNb.number / this.responsesNb;
         this.members = [{ name: "Nouveaux clients", value: this.newClients.percentage, extra: { format: "percent" } }];
         console.log('new', this.newClients);
       });
-      this.apiService.getStat({question_1: false}).subscribe((savNb: any) => {
+      this.apiService.getStat({ question_1: false }).subscribe((savNb: any) => {
         console.log('sav number', savNb)
         this.savClients['number'] = savNb.number;
         this.savClients['percentage'] = savNb.number / this.responsesNb;
@@ -141,6 +147,19 @@ export class BackofficeComponent implements OnInit {
   }
   onSelect(event) {
     console.log(event);
+  }
+  exportexcel() {
+    this.apiService.getAll('response/excel').subscribe(
+      (responses) => {
+        this.responses = responses;
+        setTimeout(() => {
+          let element = document.getElementById('excel-table');
+          const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+          const wb: XLSX.WorkBook = XLSX.utils.book_new();
+          XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+          XLSX.writeFile(wb, this.fileName);
+        }, 1500)
+      });
   }
   public infoLabelFormat(c): string {
     switch (c.data.name) {

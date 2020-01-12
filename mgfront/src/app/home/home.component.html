@@ -89,9 +89,9 @@
               <p class="recommand-text text-center"> Recommanderiez-vous la marque MG à votre entourage ?
               </p>
               <img src="assets/barre.png" class="jauge">
-              <mat-slider thumbLabel tickInterval="auto" min="0" max="10" [(ngModel)]="value"></mat-slider>
+              <mat-slider thumbLabel tickInterval="auto" min="0" max="10" [(ngModel)]="question_5"></mat-slider>
               <div>
-                <button class="btn mt-4" (click)="selected(9)">Next</button>
+                <button class="btn mt-4" [disabled]="!question_5" (click)="selected(9)">Next</button>
               </div>
             </div>
           </div>
@@ -205,9 +205,9 @@
               <h1 class=" text-justify"> Recommanderiez-vous le service après-vente MG à votre entourage?
               </h1>
               <img src="assets/barre.png" class="jauge">
-              <mat-slider thumbLabel tickInterval="auto" min="0" max="10" [(ngModel)]="value"></mat-slider>
+              <mat-slider thumbLabel tickInterval="auto" min="0" max="10" [(ngModel)]="question_12"></mat-slider>
               <div>
-                <button class="btn mt-4" (click)="selected(9)">Suivant</button>
+                <button class="btn mt-4" [disabled]="!question_12" (click)="selected(9)">Suivant</button>
               </div>
             </div>
           </div>
