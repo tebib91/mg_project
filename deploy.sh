@@ -5,7 +5,7 @@
 # restart pm2
 echo "Pulling from remote repository"
 result="a"
-git pull origin master
+git pull -X theirs origin master
 if [ "$result" != "Already up to date." ]
     then
     cd mgfront
