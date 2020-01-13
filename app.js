@@ -35,6 +35,9 @@ app.use('/users', usersRouter);
 app.get('/deploy', (req, res) => {
   console.log('in deploy');
   shell.exec('./deploy.sh');
+  res.status(201).json({
+    message: 'Deployed'
+  })
 });
 mongoose.connect('mongodb+srv://root:24212439@mgdb-ie7cc.mongodb.net/test?retryWrites=true&w=majority', {
     promiseLibrary: require('bluebird'),
