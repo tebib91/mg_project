@@ -116,7 +116,7 @@ export class HomeComponent implements OnInit {
     }
     console.log(this.selectedIndex);
   }
-
+// submit method
   submitResponse() {
     this.error = false;
     console.log(this.full_name)
