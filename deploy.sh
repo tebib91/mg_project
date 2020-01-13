@@ -1,14 +1,17 @@
+#!/bin/bash
 # pulling from the remote origin
 # then build the angular project
 # copy dist content to the server
 # restart pm2
 echo "Pulling from remote repository"
-wait output = git pull origin master
-if [$result != 'Everything is uptodate.']
+result="a"
+git pull origin master
+if [ "$result" != "Already up to date." ]
     then
     cd mgfront
-    wait ng build --prod
-    cp dist/mgfront /var/www/mgproject
+    ng build --prod
+    cp -R dist/mgfront /var/www/mgproject
+    pm2 restart www
 else
     echo $result
 fi
