@@ -35,7 +35,7 @@ app.use('/users', usersRouter);
 app.get('/deploy', (req, res) => {
   console.log('in deploy');
   shell.exec('./deploy.sh');
-  res.status(201).json({
+  return res.status(201).json({
     message: 'Deployed'
   })
 });
