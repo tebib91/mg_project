@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
   selectedIndex = 0;
   value = 5;
   question_5;
-  question_12;
+  question_12 = 5;
   options: Options = {
     showTicksValues: true,
     stepsArray: [
