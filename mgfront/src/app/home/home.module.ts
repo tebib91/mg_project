@@ -7,7 +7,8 @@ import { HomeComponent } from './home.component';
 import {MatSliderModule, MatSlideToggleModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng5SliderModule } from 'ng5-slider';
-
+import {NgxBootstrapSliderModule} from "ngx-bootstrap-slider";
+import {SliderModule} from 'primeng/slider';
 @NgModule({
   declarations: [HomeComponent],
   imports: [
@@ -17,7 +18,9 @@ import { Ng5SliderModule } from 'ng5-slider';
     FormsModule,
     ReactiveFormsModule,
     MatSlideToggleModule,
-    Ng5SliderModule
+    Ng5SliderModule,
+    NgxBootstrapSliderModule,
+    SliderModule
   ]
 })
 export class HomeModule { }

@@ -15,7 +15,7 @@
     z-index: 9999;
 }
 #header #header-content {
-    margin: 10px; 
+    margin: 10px;
 }
 img.logo {
     width: 49px;
@@ -36,9 +36,11 @@ img.logo-name {
     bottom: 0;
     left: 0;
     width: 90%;
-    border-top: 1px solid white;
     padding: 10px;
     margin: auto 5%;
     z-index: 9999;
     text-align: right;
+  p {
+    font-size: 14px;
+  }
 }

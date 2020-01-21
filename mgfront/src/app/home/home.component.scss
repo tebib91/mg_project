@@ -1,4 +1,6 @@
-
+::ng-deep body .ui-slider.ui-slider-horizontal {
+  height: 10px;
+}
 .wrapper {
   height: 100vh;
   background-position: center;
@@ -111,7 +113,8 @@
   margin-top: -20%;
   .recommand-text {
     line-height: 1;
-    font-size: 22px;
+    font-size: 25px;
+    font-weight: bold;
   }
 
   .jauge {
