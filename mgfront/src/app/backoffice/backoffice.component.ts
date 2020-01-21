@@ -21,6 +21,9 @@ export class BackofficeComponent implements OnInit {
   ];
   dataSource: MatTableDataSource<any>;
   repsonses: any;
+  loggedIn = false;
+  password = '';
+  username = '';
   public sales = [{ name: "Question One", value: 0.81, extra: { format: "percent" } }];
   public salesBgColor = { domain: ["#2F3E9E"] };
 
@@ -116,6 +119,11 @@ export class BackofficeComponent implements OnInit {
       this.repsonses = responses;
       this.dataSource = new MatTableDataSource(responses);
     })
+  }
+  login() {
+    if (this.username === 'admin' && this.password === 'admin') {
+      this.loggedIn = true;
+    }
   }
   changeSelect() {
     // do shit

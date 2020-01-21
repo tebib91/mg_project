@@ -4,7 +4,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const shell = require('shelljs')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var cors = require('cors');
@@ -32,7 +32,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.get('/deploy', (req, res) => {
+  console.log('in deploy');
+  shell.exec('./deploy.sh');
+  return res.status(201).json({
+    message: 'Deployed'
+  })
+});
 mongoose.connect('mongodb+srv://root:24212439@mgdb-ie7cc.mongodb.net/test?retryWrites=true&w=majority', {
     promiseLibrary: require('bluebird'),
     useNewUrlParser: true,

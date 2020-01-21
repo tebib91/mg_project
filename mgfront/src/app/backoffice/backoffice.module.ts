@@ -12,6 +12,7 @@ import { ModalComponent } from './modal/modal.component';
 import { StatCardComponent } from './stat-card/stat-card.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatInputModule,
     MatDialogModule,
     MatSelectModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule
   ],
   entryComponents: [ModalComponent]
 })

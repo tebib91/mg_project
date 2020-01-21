@@ -1,4 +1,14 @@
-<div class="container">
+<div class="container" *ngIf="!loggedIn">
+  <div class="log-form">
+    <h2>Login to your account</h2>
+    <form>
+      <input type="text" title="username" [(ngModel)]="username" placeholder="username" [ngModelOptions]="{standalone: true}" />
+      <input type="password" title="password" [(ngModel)]="password" placeholder="password" [ngModelOptions]="{standalone: true}" />
+      <button (click)="login()" class="btn">Login</button>
+    </form>
+  </div><!--end log form -->
+</div>
+<div class="container" *ngIf="loggedIn">
   <div>
     <mat-form-field>
       <mat-label>Type de réponse</mat-label>
@@ -161,17 +171,17 @@
     <tr *ngFor="let response of responses">
       <td>{{response.created_at ? response.created_at : 'NO DATE'}}</td>
       <td>{{response.question_1 ? "Nouveau Client" : "SAV"}}</td>
-      <td>{{response.question_2}}</td>
-      <td>{{response.question_3}}</td>
-      <td>{{response.question_4}}</td>
-      <td>{{response.question_5}}</td>
-      <td>{{response.question_6}}</td>
-      <td>{{response.question_7}}</td>
-      <td>{{response.question_8}}</td>
-      <td>{{response.question_9}}</td>
-      <td>{{response.question_10}}</td>
-      <td>{{response.question_11}}</td>
-      <td>{{response.question_12}}</td>
+      <td>{{response.question_2 ? response.question_2 + '/ 5' : '-'}}</td>
+      <td>{{response.question_3 ? response.question_3 + '/ 5' : '-'}}</td>
+      <td>{{response.question_4 ? response.question_4 + '/ 5' : '-'}}</td>
+      <td>{{response.question_5 ? response.question_5 + '/ 5' : '-'}}</td>
+      <td>{{response.question_6 ? response.question_6 + '/ 5' : '-'}}</td>
+      <td>{{response.question_7 ? response.question_7 + '/ 5' : '-'}}</td>
+      <td>{{response.question_8 ? response.question_8 + '/ 5' : '-'}}</td>
+      <td>{{response.question_9 ? response.question_9 + '/ 5' : '-'}}</td>
+      <td>{{response.question_10 ? response.question_10 + '/ 5' : '-'}}</td>
+      <td>{{response.question_11 ? response.question_11 + '/ 5' : '-'}}</td>
+      <td>{{response.question_12 ? response.question_12 + '/ 5' : '-'}}</td>
       <td>{{response.full_name}}</td>
       <td>{{response.car_model}}</td>
       <td>{{response.suggestion}}</td>
