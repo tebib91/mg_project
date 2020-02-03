@@ -12,12 +12,15 @@
   margin-top:20%;
   position: absolute;
 }
+.page-text {
 
+}
 .slide-button:hover,
 .page-text {
   min-height: 373px;
   height: 100%;
   opacity: 0;
+
 }
 
 .questionOne {
@@ -28,7 +31,7 @@
 
   > h1 {
     color: #f60023;
-    font-size: 3.4em;
+    font-size: calc(2em + 2vw);
     font-family: "SourceSansPro-Bold";
     line-height: 1;
   }

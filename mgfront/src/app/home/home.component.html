@@ -1,4 +1,4 @@
-<div class="wrapper" [ngStyle]="{'background-image': 'url(' + currentImage + ')'}">
+<div class="wrapper text" [ngStyle]="{'background-image': 'url(' + currentImage + ')'}" >
 
   <div class="container-fluid">
 
@@ -7,7 +7,7 @@
       <div class="col-{{ selectedIndex == 1 ? '12' :'5' }}">
         <div class="page-text questionOne" *ngIf="selectedIndex == 0" [ngClass]="{'selected':selectedIndex == 0}">
           <h1>MG Lover, <br>we need you!</h1>
-          <p class="text-justify">A fin d'améliorer votre MG Expérience nous avons besoin de votre feedbacks et
+          <p class="text-center">A fin d'améliorer votre MG Expérience nous avons besoin de votre feedbacks et
             recommandations.<br>Le
             questionnaire ne durera qu'une minute, on vous remercie à l'avance pour le temps consacré.</p>
           <button class="btn mt-3" (click)="selected(1)">COMMENCER</button>
@@ -15,7 +15,7 @@
 
         <div *ngIf="selectedIndex == 1; else elseTemplate">
           <div class="page-text"  [ngClass]="{'selected':selectedIndex == 1}">
-            <div class="questionTwo d-flex">
+            <div class="questionTwo d-flex text-center">
               <h1 class="first" (click)="addResponse(1, true)"><b>Vous êtes <br> un nouveau client ?</b></h1>
               <h1 class="second" (click)="addResponse(1, false)"><b>Vous êtes <br> un client SAV ?</b></h1>
             </div>
@@ -26,7 +26,7 @@
 
           <div class="page-text" *ngIf="selectedIndex == 2" [ngClass]="{'selected': selectedIndex == 2}">
             <div class="questionThree">
-              <h1 class="text-justify">Comment vous évaluez la prise en charge et le suivi par notre équipe commercial
+              <h1 class="text-centerq">Comment vous évaluez la prise en charge et le suivi par notre équipe commercial
                 ?
               </h1>
               <div class="icons mt-4">
@@ -48,7 +48,7 @@
 
           <div class="page-text" *ngIf="selectedIndex == 3" [ngClass]="{'selected': selectedIndex == 3}">
             <div class="questionFour">
-              <h1 class="text-justify mb-2">Comment vous évaluez le prise en charge et le suivi par notre équipe
+              <h1 class="text-center mb-2">Comment vous évaluez le prise en charge et le suivi par notre équipe
                 commercial ?
               </h1>
               <p>Explication et réponse aux questions</p>
@@ -90,6 +90,7 @@
               </p>
 <!--              <img src="assets/barre.png" class="jauge">-->
 <!--              <mat-slider thumbLabel tickInterval="auto" min="0" max="10" [(ngModel)]="question_5"></mat-slider>-->
+                {{question_5}}
               <p-slider [(ngModel)]="question_5" [min]="0" [max]="10" [step]="1">  </p-slider>
 
               <div>
@@ -100,7 +101,7 @@
 
           <div class="page-text" *ngIf="selectedIndex == 5" [ngClass]="{'selected': selectedIndex == 5}">
             <div class="questionThree">
-              <h1 class="text-justify">MG Lover quelle est votre degré de satisfaction par rapport à votre voiture MG?
+              <h1 class="text-center">MG Lover quelle est votre degré de satisfaction par rapport à votre voiture MG?
               </h1>
               <div class="icons mt-4">
                 <img src="assets/icons/1-5.png" alt="" width="42" (click)="addResponse(6, 1)"
@@ -120,7 +121,7 @@
 
           <div class="page-text" *ngIf="selectedIndex == 6" [ngClass]="{'selected': selectedIndex == 6}">
             <div class="questionFour mar-top">
-              <h1 class="text-justify">Comment vous évaluez la prise en charge et le suivi par notre équipe SAV ?</h1>
+              <h1 class="text-center">Comment vous évaluez la prise en charge et le suivi par notre équipe SAV ?</h1>
               <p>Disponibilité et joignabilité de l'équipe</p>
               <div class="icons my-3">
                 <img src="assets/icons/1-5.png" alt="" width="42" (click)="addResponse(7, 1)"
@@ -167,7 +168,7 @@
 
           <div class="page-text" *ngIf="selectedIndex == 7" [ngClass]="{'selected': selectedIndex == 7}">
             <div class="questionFour">
-              <h1 class="text-justify">Notre conseiller a répondu à toutes vos questions?</h1>
+              <h1 class="text-center">Notre conseiller a répondu à toutes vos questions?</h1>
               <p>Explication des travaux réalisés</p>
               <div class="icons my-4">
                 <img src="assets/icons/1-5.png" alt="" width="42" (click)="addResponse(10, 1)"
@@ -204,7 +205,7 @@
 
             <div class="questionFive position-relative">
 
-              <h1 class=" text-justify"> Recommanderiez-vous le service après-vente MG à votre entourage?
+              <h1 class="text-center"> Recommanderiez-vous le service après-vente MG à votre entourage?
               </h1>
 <!--              <mat-slider thumbLabel tickInterval="auto" min="0" max="10" [(ngModel)]="question_12"></mat-slider>-->
               <div>
@@ -221,7 +222,7 @@
             <div class="questionFive formulaire">
               <h1 class="red-title">MG Lover, <br>c'est presque fini !</h1>
               <br>
-              <p class="text-justify"><b>On vous remercie du temps consacré vous souhaitez
+              <p class="text-center"><b>On vous remercie du temps consacré vous souhaitez
                 rajouter une remarque ou une suggestion
               </b></p>
 
