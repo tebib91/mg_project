@@ -88,13 +88,14 @@
 
               <p class="recommand-text text-center"> Recommanderiez-vous la marque MG à votre entourage ?
               </p>
-<!--              <img src="assets/barre.png" class="jauge">-->
-<!--              <mat-slider thumbLabel tickInterval="auto" min="0" max="10" [(ngModel)]="question_5"></mat-slider>-->
-                {{question_5}}
-              <p-slider [(ngModel)]="question_5" [min]="0" [max]="10" [step]="1">  </p-slider>
+              <div class="jauge-container">
+                <img src="assets/barre.png" class="jauge">
+                <p-slider [(ngModel)]="question_5" [min]="0" [max]="10" [step]="1">  </p-slider>
+              </div>
+
 
               <div>
-                <button class="btn mt-4" [disabled]="!question_5" (click)="selected(9)">Suivant</button>
+                <button class="btn mt-5" [disabled]="!question_5" (click)="selected(9)">Suivant</button>
               </div>
             </div>
           </div>
@@ -208,12 +209,13 @@
               <h1 class="text-center"> Recommanderiez-vous le service après-vente MG à votre entourage?
               </h1>
 <!--              <mat-slider thumbLabel tickInterval="auto" min="0" max="10" [(ngModel)]="question_12"></mat-slider>-->
-              <div>
-                {{question_12}}
+              <div class="jauge-container">
+<!--                {{question_12}}-->
+                <img src="assets/barre.png" class="jauge">
                 <p-slider [(ngModel)]="question_12" [min]="0" [max]="10" [step]="1">  </p-slider>
               </div>
               <div>
-                <button class="btn mt-4" [disabled]="!question_12" (click)="selected(9)">Suivant</button>
+                <button class="btn mt-5" [disabled]="!question_12" (click)="selected(9)">Suivant</button>
               </div>
             </div>
           </div>
