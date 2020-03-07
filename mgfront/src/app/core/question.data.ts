@@ -14,5 +14,5 @@ export const questions = {
   question_12: 'Recommanderiez-vous le service après-vente MG à votre entourage?',
   full_name: 'Nom complet',
   car_model: 'Model de la véhicule',
-  suggestion: 'Des suggestions'
+  suggetion: 'Des suggestions'
 }

@@ -124,7 +124,7 @@ export class HomeComponent implements OnInit {
     console.log(this.full_name)
     this.response['full_name'] = this.full_name;
     this.response['car_model'] = this.car_model;
-    this.response['suggestion'] = this.suggestion;
+    this.response['suggetion'] = this.suggestion;
     if (this.question_5) {
       this.response['question_5'] = this.question_5;
     } else {
