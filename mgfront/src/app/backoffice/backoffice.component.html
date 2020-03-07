@@ -166,7 +166,7 @@
       <td>{{translatedQuestions['question_12']}}</td>
       <td>{{translatedQuestions['full_name']}}</td>
       <td>{{translatedQuestions['car_model']}}</td>
-      <td>{{translatedQuestions['suggestion']}}</td>
+      <td>{{translatedQuestions['suggetion']}}</td>
     </tr>
     <tr *ngFor="let response of responses">
       <td>{{response.created_at ? response.created_at : 'NO DATE'}}</td>
@@ -184,7 +184,7 @@
       <td>{{response.question_12 ? response.question_12 + '/ 5' : '-'}}</td>
       <td>{{response.full_name}}</td>
       <td>{{response.car_model}}</td>
-      <td>{{response.suggestion}}</td>
+      <td>{{response.suggetion}}</td>
     </tr>
   </tbody>
 </table>
