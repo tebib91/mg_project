@@ -5,7 +5,7 @@ import { catchError, tap } from 'rxjs/operators';
 
 
 // const apiUrl = 'http://localhost:3001/api';
-const apiUrl = 'http://197.12.9.53/api';
+const apiUrl = 'http://197.12.9.53:3001/api';
 
 @Injectable({
   providedIn: 'root'
