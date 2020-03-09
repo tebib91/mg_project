@@ -116,7 +116,7 @@ export class HomeComponent implements OnInit {
     }
     console.log(this.selectedIndex);
   }
-// submit method
+  // submit method
   submitResponse() {
     this.error = false;
     console.log(this.full_name)
@@ -127,9 +127,8 @@ export class HomeComponent implements OnInit {
     this.response['suggetion'] = this.suggestion;
     if (this.question_5) {
       this.response['question_5'] = this.question_5;
-    } else {
-      this.response['question_12'] = this.question_12;
     }
+    this.response['question_12'] = this.question_12;
     console.log(this.response);
     this.api.addResponse(this.response).subscribe((data) => {
       this.selectedIndex = 10;
