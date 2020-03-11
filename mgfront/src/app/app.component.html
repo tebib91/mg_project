@@ -1,8 +1,8 @@
 
-<div>
+<div #fs fullscreen-able [class.is-active]="isActive">
     <div id="header">
         <div id="header-content">
-            <img src="assets/img/logo.png" alt="" srcset="" class="logo">
+            <img src="assets/img/logo.png" alt="" srcset="" class="logo" (click)="openFullscreen()">
             <img src="assets/img/morrisgarage.png" alt="" srcset=""class="logo-name">
 
         </div>
