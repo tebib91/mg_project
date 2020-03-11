@@ -13,16 +13,7 @@ export class AppComponent implements OnInit {
 
   @HostBinding('class.is-fullscreen') isFullscreen = false;
   subscription: any;
-  constructor(private router: Router) {
-    this.subscription = router.events.subscribe((event) => {
-      if (event instanceof NavigationStart) {
-        this.isFullscreen = true;
-        this.isActive = true;
-        this.fs.nativeElement.requestFullscreen();
 
-      }
-    });
-  }
   isActive = false;
   ngOnInit() {
 
