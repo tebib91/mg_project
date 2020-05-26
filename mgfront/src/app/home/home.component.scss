@@ -4,8 +4,8 @@
   width: 90%;
 }
 ::ng-deep body .body .ui-slider .ui-slider-handle {
-width: 10px !important;
-height: 10px !important;
+  width: 10px !important;
+  height: 10px !important;
 }
 
 .wrapper {
@@ -19,18 +19,16 @@ height: 10px !important;
   position: relative;
 }
 .main {
-  margin-top:20%;
+  margin-top: 20%;
   position: absolute;
 }
 .page-text {
-
 }
 .slide-button:hover,
 .page-text {
   min-height: 373px;
   height: 100%;
   opacity: 0;
-
 }
 
 .second {
@@ -38,7 +36,6 @@ height: 10px !important;
 }
 
 .questionOne {
-
   max-width: 35em !important;
   margin: 0 2em;
   text-align: center;
@@ -49,7 +46,6 @@ height: 10px !important;
     font-family: "SourceSansPro-Bold";
     line-height: 1;
   }
-
 }
 .icon-selected {
   transform: scale(1.5);
@@ -75,7 +71,6 @@ height: 10px !important;
   text-align: center;
   letter-spacing: 1.1px;
 
-
   > h1 {
     line-height: 1;
   }
@@ -85,7 +80,7 @@ height: 10px !important;
 
     > img {
       margin-right: 0.7em;
-      transition: transform .5s ease;
+      transition: transform 0.5s ease;
     }
 
     > img:hover {
@@ -93,8 +88,6 @@ height: 10px !important;
     }
   }
 }
-
-
 
 .questionFour {
   margin-top: -25%;
@@ -114,7 +107,7 @@ height: 10px !important;
 
     > img {
       margin-right: 0.7em;
-      transition: transform .5s ease;
+      transition: transform 0.5s ease;
     }
 
     > img:hover {
@@ -138,7 +131,7 @@ height: 10px !important;
     position: absolute;
     height: 59px;
     right: 29px;
-    width: 95%;
+    width: 100%;
     top: -16px;
   }
 
@@ -147,7 +140,7 @@ height: 10px !important;
 
     > img {
       margin-right: 0.7em;
-      transition: transform .5s ease;
+      transition: transform 0.5s ease;
     }
 
     > img:hover {
@@ -278,8 +271,8 @@ mat-slider {
 }
 
 // Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300);
-@import url(https://fonts.googleapis.com/css?family=Lusitana:400,700);
+// @import url(https://fonts.googleapis.com/css?family=Raleway:300);
+// @import url(https://fonts.googleapis.com/css?family=Lusitana:400, 700);
 // Helpers
 @mixin clearfix {
   &:after {
@@ -380,7 +373,6 @@ form {
   font-size: 12px;
   color: #cfcfcf;
 }
-
 
 .form-q {
   border-radius: 10px;
