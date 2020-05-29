@@ -139,6 +139,8 @@ export class HomeComponent implements OnInit {
         this.full_name = '';
         this.car_model = '';
         this.suggestion = '';
+        this.question_5 = 5;
+	this.question_12 = 5;
       }, 2500);
     });
 
