@@ -4,6 +4,8 @@ var router = express.Router();
 // var Question = require('../models/question');
 
 router.post('/', (req, res, next) => {
+	console.log('date', new Date);
+console.log('response object', req.body);
   const response = new Response(req.body);
   response.save().then(() => {
     res.status(200).json({
@@ -52,7 +54,8 @@ router.get('/excel', (req, res) => {
 // return for the table
 router.get('/', (req, res) => {
   Response.find({question_1: req.query.type}).select({'question_1': 1, 'full_name': 1, 'car_model': 1}).then((responses) => {
-    res.status(201).json(responses);
+	console.log('responses number', responses.length);    
+res.status(201).json(responses);
   }).catch(err => {
     res.status(401).json({
       error: err

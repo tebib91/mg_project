@@ -135,7 +135,7 @@ export class HomeComponent implements OnInit {
       console.log('response data', this.selectedIndex);
       setTimeout(() => {
         this.selected(0);
-        this.response = [];
+        this.response = {};
         this.full_name = '';
         this.car_model = '';
         this.suggestion = '';
